@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "firma",
+            "otherEntityName": "firma",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "bulunduguUlke",
+            "otherEntityName": "ulke",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "tesisBilgisi"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "uretimAlani",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170821141823",
+    "entityTableName": "tesis_bilgisi",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

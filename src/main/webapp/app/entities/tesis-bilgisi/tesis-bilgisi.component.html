@@ -1,0 +1,72 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.tesisBilgisi.home.title">Tesis Bilgisis</span>
+        <button class="btn btn-primary float-right jh-create-entity create-tesis-bilgisi" [routerLink]="['/', { outlets: { popup: ['tesis-bilgisi-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.tesisBilgisi.home.createLabel">
+            Create new Tesis Bilgisi
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="tesisBilgisis">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.tesisBilgisi.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.tesisBilgisi.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.tesisBilgisi.uretimAlani">Uretim Alani</span></th>
+            <th><span jhiTranslate="inventoryApp.tesisBilgisi.firma">Firma</span></th>
+            <th><span jhiTranslate="inventoryApp.tesisBilgisi.bulunduguUlke">Bulundugu Ulke</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tesisBilgisi of tesisBilgisis ;trackBy: trackId">
+                <td><a [routerLink]="['../tesis-bilgisi', tesisBilgisi.id ]">{{tesisBilgisi.id}}</a></td>
+                <td>{{tesisBilgisi.deleted}}</td>
+                <td>{{tesisBilgisi.version}}</td>
+                <td>{{tesisBilgisi.uretimAlani}}</td>
+                <td>
+                    <div *ngIf="tesisBilgisi.firma">
+                        <a [routerLink]="['../firma', tesisBilgisi.firma?.id ]" >{{tesisBilgisi.firma?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="tesisBilgisi.bulunduguUlke">
+                        <a [routerLink]="['../ulke', tesisBilgisi.bulunduguUlke?.id ]" >{{tesisBilgisi.bulunduguUlke?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../tesis-bilgisi', tesisBilgisi.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tesis-bilgisi/'+ tesisBilgisi.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tesis-bilgisi/'+ tesisBilgisi.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

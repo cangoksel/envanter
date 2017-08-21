@@ -1,0 +1,24 @@
+{
+    "inventoryApp": {
+        "urunGrubuKodu" : {
+            "home": {
+                "title": "Urun Grubu Kodus",
+                "createLabel": "Create a new Urun Grubu Kodu",
+                "createOrEditLabel": "Create or edit a Urun Grubu Kodu"
+            },
+            "created": "A new Urun Grubu Kodu is created with identifier {{ param }}",
+            "updated": "A Urun Grubu Kodu is updated with identifier {{ param }}",
+            "deleted": "A Urun Grubu Kodu is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Urun Grubu Kodu {{ id }}?"
+            },
+            "detail": {
+                "title": "Urun Grubu Kodu"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "urunGrubuKoduAdi": "Urun Grubu Kodu Adi",
+            "urunGrubuKod": "Urun Grubu Kod"
+        }
+    }
+}

@@ -1,0 +1,78 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myFinansalBilgileriLabel" jhiTranslate="inventoryApp.finansalBilgileri.home.createOrEditLabel">Create or edit a Finansal Bilgileri</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!finansalBilgileri.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="finansalBilgileri.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.finansalBilgileri.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                [(ngModel)]="finansalBilgileri.deleted"  />
+            <div [hidden]="!(editForm.controls.deleted?.dirty && editForm.controls.deleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.deleted?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.finansalBilgileri.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="finansalBilgileri.version" required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.finansalBilgileri.yil" for="field_yil">Yil</label>
+            <div class="input-group">
+                <input id="field_yil" type="text" class="form-control" name="yil" ngbDatepicker  #yilDp="ngbDatepicker" [(ngModel)]="finansalBilgileri.yil"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="yilDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.yil?.dirty && editForm.controls.yil?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.yil?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.finansalBilgileri.ihracatVarMi" for="field_ihracatVarMi">Ihracat Var Mi</label>
+            <input type="checkbox" class="form-control" name="ihracatVarMi" id="field_ihracatVarMi"
+                [(ngModel)]="finansalBilgileri.ihracatVarMi"  />
+            <div [hidden]="!(editForm.controls.ihracatVarMi?.dirty && editForm.controls.ihracatVarMi?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.ihracatVarMi?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

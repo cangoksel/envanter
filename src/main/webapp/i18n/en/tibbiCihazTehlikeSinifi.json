@@ -1,0 +1,23 @@
+{
+    "inventoryApp": {
+        "tibbiCihazTehlikeSinifi" : {
+            "home": {
+                "title": "Tibbi Cihaz Tehlike Sinifis",
+                "createLabel": "Create a new Tibbi Cihaz Tehlike Sinifi",
+                "createOrEditLabel": "Create or edit a Tibbi Cihaz Tehlike Sinifi"
+            },
+            "created": "A new Tibbi Cihaz Tehlike Sinifi is created with identifier {{ param }}",
+            "updated": "A Tibbi Cihaz Tehlike Sinifi is updated with identifier {{ param }}",
+            "deleted": "A Tibbi Cihaz Tehlike Sinifi is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tibbi Cihaz Tehlike Sinifi {{ id }}?"
+            },
+            "detail": {
+                "title": "Tibbi Cihaz Tehlike Sinifi"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "sinif": "Sinif"
+        }
+    }
+}

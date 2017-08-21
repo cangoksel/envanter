@@ -1,0 +1,23 @@
+{
+    "inventoryApp": {
+        "faaliyetAlani" : {
+            "home": {
+                "title": "Faaliyet Alanis",
+                "createLabel": "Create a new Faaliyet Alani",
+                "createOrEditLabel": "Create or edit a Faaliyet Alani"
+            },
+            "created": "A new Faaliyet Alani is created with identifier {{ param }}",
+            "updated": "A Faaliyet Alani is updated with identifier {{ param }}",
+            "deleted": "A Faaliyet Alani is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Faaliyet Alani {{ id }}?"
+            },
+            "detail": {
+                "title": "Faaliyet Alani"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "label": "Label"
+        }
+    }
+}

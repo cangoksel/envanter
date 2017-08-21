@@ -1,0 +1,97 @@
+
+<div *ngIf="urun">
+    <h2><span jhiTranslate="inventoryApp.urun.detail.title">Urun</span> {{urun.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.urun.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{urun.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.version">Version</span></dt>
+        <dd>
+            <span>{{urun.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.tanimi">Tanimi</span></dt>
+        <dd>
+            <span>{{urun.tanimi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.kullanimAlanlari">Kullanim Alanlari</span></dt>
+        <dd>
+            <span>{{urun.kullanimAlanlari}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.cesitleri">Cesitleri</span></dt>
+        <dd>
+            <span>{{urun.cesitleri}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.endikasyonlari">Endikasyonlari</span></dt>
+        <dd>
+            <span>{{urun.endikasyonlari}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.formlari">Formlari</span></dt>
+        <dd>
+            <span>{{urun.formlari}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.urunAltKodu">Urun Alt Kodu</span></dt>
+        <dd>
+            <div *ngIf="urun.urunAltKodu">
+                <a [routerLink]="['/urun-alt-kodu', urun.urunAltKodu?.id]">{{urun.urunAltKodu?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.prodkomKodu">Prodkom Kodu</span></dt>
+        <dd>
+            <div *ngIf="urun.prodkomKodu">
+                <a [routerLink]="['/prodkom-kodu', urun.prodkomKodu?.id]">{{urun.prodkomKodu?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.gtipKodu">Gtip Kodu</span></dt>
+        <dd>
+            <div *ngIf="urun.gtipKodu">
+                <a [routerLink]="['/gtip-kodu', urun.gtipKodu?.id]">{{urun.gtipKodu?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.mkysKodu">Mkys Kodu</span></dt>
+        <dd>
+            <div *ngIf="urun.mkysKodu">
+                <a [routerLink]="['/mkys-kodu', urun.mkysKodu?.id]">{{urun.mkysKodu?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.medikalTurKodu">Medikal Tur Kodu</span></dt>
+        <dd>
+            <div *ngIf="urun.medikalTurKodu">
+                <a [routerLink]="['/medikal-tur-kodu', urun.medikalTurKodu?.id]">{{urun.medikalTurKodu?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.naceKodu">Nace Kodu</span></dt>
+        <dd>
+            <div *ngIf="urun.naceKodu">
+                <a [routerLink]="['/nace-kodu', urun.naceKodu?.id]">{{urun.naceKodu?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.actKodu">Act Kodu</span></dt>
+        <dd>
+            <div *ngIf="urun.actKodu">
+                <a [routerLink]="['/act-kodu', urun.actKodu?.id]">{{urun.actKodu?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urun.tibbiCihazTehlikeSinifi">Tibbi Cihaz Tehlike Sinifi</span></dt>
+        <dd>
+            <div *ngIf="urun.tibbiCihazTehlikeSinifi">
+                <a [routerLink]="['/tibbi-cihaz-tehlike-sinifi', urun.tibbiCihazTehlikeSinifi?.id]">{{urun.tibbiCihazTehlikeSinifi?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'urun/'+ urun.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

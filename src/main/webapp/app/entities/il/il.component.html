@@ -1,0 +1,74 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.il.home.title">Ils</span>
+        <button class="btn btn-primary float-right jh-create-entity create-il" [routerLink]="['/', { outlets: { popup: ['il-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.il.home.createLabel">
+            Create new Il
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ils">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.il.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.il.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.il.label">Label</span></th>
+            <th><span jhiTranslate="inventoryApp.il.plakaNo">Plaka No</span></th>
+            <th><span jhiTranslate="inventoryApp.il.ulke">Ulke</span></th>
+            <th><span jhiTranslate="inventoryApp.il.bolge">Bolge</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let il of ils ;trackBy: trackId">
+                <td><a [routerLink]="['../il', il.id ]">{{il.id}}</a></td>
+                <td>{{il.deleted}}</td>
+                <td>{{il.version}}</td>
+                <td>{{il.label}}</td>
+                <td>{{il.plakaNo}}</td>
+                <td>
+                    <div *ngIf="il.ulke">
+                        <a [routerLink]="['../ulke', il.ulke?.id ]" >{{il.ulke?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="il.bolge">
+                        <a [routerLink]="['../bolge', il.bolge?.id ]" >{{il.bolge?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../il', il.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'il/'+ il.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'il/'+ il.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

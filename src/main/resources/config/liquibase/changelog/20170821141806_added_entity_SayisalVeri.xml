@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity SayisalVeri.
+    -->
+    <changeSet id="20170821141806-1" author="jhipster">
+        <createTable tableName="sayisal_veri">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="deleted" type="boolean">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="version" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="yil" type="date">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="ithalat_miktari" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="ihtiyac_miktari" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="birim_fiyat_tutar" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="birim_fiyat_pb" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="dunya_pazari_tutar" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="dunya_pazari_pb" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="turkiye_pazari_tutar" type="decimal(10,2)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="turkiye_pazari_pb" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="urun_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+</databaseChangeLog>

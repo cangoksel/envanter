@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity SayisalVeri.
+    -->
+    <changeSet id="20170821141806-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="urun_id"
+                                 baseTableName="sayisal_veri"
+                                 constraintName="fk_sayisal_veri_urun_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="urun"/>
+
+    </changeSet>
+</databaseChangeLog>

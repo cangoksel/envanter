@@ -1,0 +1,60 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.belgeTipi.home.title">Belge Tipis</span>
+        <button class="btn btn-primary float-right jh-create-entity create-belge-tipi" [routerLink]="['/', { outlets: { popup: ['belge-tipi-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.belgeTipi.home.createLabel">
+            Create new Belge Tipi
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="belgeTipis">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.belgeTipi.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.belgeTipi.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.belgeTipi.label">Label</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let belgeTipi of belgeTipis ;trackBy: trackId">
+                <td><a [routerLink]="['../belge-tipi', belgeTipi.id ]">{{belgeTipi.id}}</a></td>
+                <td>{{belgeTipi.deleted}}</td>
+                <td>{{belgeTipi.version}}</td>
+                <td>{{belgeTipi.label}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../belge-tipi', belgeTipi.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'belge-tipi/'+ belgeTipi.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'belge-tipi/'+ belgeTipi.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

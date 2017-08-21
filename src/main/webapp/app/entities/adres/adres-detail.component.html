@@ -1,0 +1,45 @@
+
+<div *ngIf="adres">
+    <h2><span jhiTranslate="inventoryApp.adres.detail.title">Adres</span> {{adres.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.adres.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{adres.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.adres.version">Version</span></dt>
+        <dd>
+            <span>{{adres.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.adres.acikAdres">Acik Adres</span></dt>
+        <dd>
+            <span>{{adres.acikAdres}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.adres.il">Il</span></dt>
+        <dd>
+            <div *ngIf="adres.il">
+                <a [routerLink]="['/il', adres.il?.id]">{{adres.il?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.adres.ulke">Ulke</span></dt>
+        <dd>
+            <div *ngIf="adres.ulke">
+                <a [routerLink]="['/ulke', adres.ulke?.id]">{{adres.ulke?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'adres/'+ adres.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

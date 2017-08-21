@@ -1,0 +1,32 @@
+{
+    "inventoryApp": {
+        "sayisalVeri" : {
+            "home": {
+                "title": "Sayisal Veris",
+                "createLabel": "Create a new Sayisal Veri",
+                "createOrEditLabel": "Create or edit a Sayisal Veri"
+            },
+            "created": "A new Sayisal Veri is created with identifier {{ param }}",
+            "updated": "A Sayisal Veri is updated with identifier {{ param }}",
+            "deleted": "A Sayisal Veri is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Sayisal Veri {{ id }}?"
+            },
+            "detail": {
+                "title": "Sayisal Veri"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "yil": "Yil",
+            "ithalatMiktari": "Ithalat Miktari",
+            "ihtiyacMiktari": "Ihtiyac Miktari",
+            "birimFiyatTutar": "Birim Fiyat Tutar",
+            "birimFiyatPB": "Birim Fiyat PB",
+            "dunyaPazariTutar": "Dunya Pazari Tutar",
+            "dunyaPazariPB": "Dunya Pazari PB",
+            "turkiyePazariTutar": "Turkiye Pazari Tutar",
+            "turkiyePazariPB": "Turkiye Pazari PB",
+            "urun": "Urun"
+        }
+    }
+}

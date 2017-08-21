@@ -1,0 +1,76 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTesisBilgisiLabel" jhiTranslate="inventoryApp.tesisBilgisi.home.createOrEditLabel">Create or edit a Tesis Bilgisi</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!tesisBilgisi.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="tesisBilgisi.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.tesisBilgisi.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                [(ngModel)]="tesisBilgisi.deleted"  />
+            <div [hidden]="!(editForm.controls.deleted?.dirty && editForm.controls.deleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.deleted?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.tesisBilgisi.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="tesisBilgisi.version" required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.tesisBilgisi.uretimAlani" for="field_uretimAlani">Uretim Alani</label>
+            <input type="text" class="form-control" name="uretimAlani" id="field_uretimAlani"
+                [(ngModel)]="tesisBilgisi.uretimAlani" required />
+            <div [hidden]="!(editForm.controls.uretimAlani?.dirty && editForm.controls.uretimAlani?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.uretimAlani?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.tesisBilgisi.firma" for="field_firma">Firma</label>
+            <select class="form-control" id="field_firma" name="firma" [(ngModel)]="tesisBilgisi.firma" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="firmaOption.id === tesisBilgisi.firma?.id ? tesisBilgisi.firma : firmaOption" *ngFor="let firmaOption of firmas; trackBy: trackFirmaById">{{firmaOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.tesisBilgisi.bulunduguUlke" for="field_bulunduguUlke">Bulundugu Ulke</label>
+            <select class="form-control" id="field_bulunduguUlke" name="bulunduguUlke" [(ngModel)]="tesisBilgisi.bulunduguUlke">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="ulkeOption.id === tesisBilgisi.bulunduguUlke?.id ? tesisBilgisi.bulunduguUlke : ulkeOption" *ngFor="let ulkeOption of bulunduguulkes; trackBy: trackUlkeById">{{ulkeOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

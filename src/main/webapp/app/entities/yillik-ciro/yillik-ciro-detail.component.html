@@ -1,0 +1,47 @@
+
+<div *ngIf="yillikCiro">
+    <h2><span jhiTranslate="inventoryApp.yillikCiro.detail.title">Yillik Ciro</span> {{yillikCiro.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.yillikCiro.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{yillikCiro.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.yillikCiro.version">Version</span></dt>
+        <dd>
+            <span>{{yillikCiro.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.yillikCiro.yil">Yil</span></dt>
+        <dd>
+            <span>{{yillikCiro.yil | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.yillikCiro.ciroTutar">Ciro Tutar</span></dt>
+        <dd>
+            <span>{{yillikCiro.ciroTutar}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.yillikCiro.ciroPB">Ciro PB</span></dt>
+        <dd>
+            <span>{{yillikCiro.ciroPB}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.yillikCiro.finansalBilgileri">Finansal Bilgileri</span></dt>
+        <dd>
+            <div *ngIf="yillikCiro.finansalBilgileri">
+                <a [routerLink]="['/finansal-bilgileri', yillikCiro.finansalBilgileri?.id]">{{yillikCiro.finansalBilgileri?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'yillik-ciro/'+ yillikCiro.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

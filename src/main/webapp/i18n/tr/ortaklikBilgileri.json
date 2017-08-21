@@ -1,0 +1,26 @@
+{
+    "inventoryApp": {
+        "ortaklikBilgileri" : {
+            "home": {
+                "title": "Ortaklik Bilgileris",
+                "createLabel": "Create a new Ortaklik Bilgileri",
+                "createOrEditLabel": "Create or edit a Ortaklik Bilgileri"
+            },
+            "created": "A new Ortaklik Bilgileri is created with identifier {{ param }}",
+            "updated": "A Ortaklik Bilgileri is updated with identifier {{ param }}",
+            "deleted": "A Ortaklik Bilgileri is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Ortaklik Bilgileri {{ id }}?"
+            },
+            "detail": {
+                "title": "Ortaklik Bilgileri"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "isbirligiSunmaIstegiVarMi": "Isbirligi Sunma Istegi Var Mi",
+            "isbirligiTalebiVarMi": "Isbirligi Talebi Var Mi",
+            "isbirligiKonsu": "Isbirligi Konsu",
+            "isbirligiYapilanFirma": "Isbirligi Yapilan Firma"
+        }
+    }
+}

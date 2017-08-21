@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "il",
+            "otherEntityName": "il",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "adres"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ulke",
+            "otherEntityName": "ulke",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "adres"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "acikAdres",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170821141824",
+    "entityTableName": "adres",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

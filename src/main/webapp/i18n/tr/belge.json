@@ -1,0 +1,31 @@
+{
+    "inventoryApp": {
+        "belge" : {
+            "home": {
+                "title": "Belges",
+                "createLabel": "Create a new Belge",
+                "createOrEditLabel": "Create or edit a Belge"
+            },
+            "created": "A new Belge is created with identifier {{ param }}",
+            "updated": "A Belge is updated with identifier {{ param }}",
+            "deleted": "A Belge is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Belge {{ id }}?"
+            },
+            "detail": {
+                "title": "Belge"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "belgeAdi": "Belge Adi",
+            "belgeBoyutu": "Belge Boyutu",
+            "olusturmaZamani": "Olusturma Zamani",
+            "silinebilirMi": "Silinebilir Mi",
+            "aciklama": "Aciklama",
+            "content": "Content",
+            "belgeTipi": "Belge Tipi",
+            "urun": "Urun",
+            "isyeriBilgileri": "Isyeri Bilgileri"
+        }
+    }
+}

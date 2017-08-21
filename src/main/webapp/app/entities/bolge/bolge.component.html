@@ -1,0 +1,60 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.bolge.home.title">Bolges</span>
+        <button class="btn btn-primary float-right jh-create-entity create-bolge" [routerLink]="['/', { outlets: { popup: ['bolge-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.bolge.home.createLabel">
+            Create new Bolge
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="bolges">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.bolge.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.bolge.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.bolge.label">Label</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let bolge of bolges ;trackBy: trackId">
+                <td><a [routerLink]="['../bolge', bolge.id ]">{{bolge.id}}</a></td>
+                <td>{{bolge.deleted}}</td>
+                <td>{{bolge.version}}</td>
+                <td>{{bolge.label}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../bolge', bolge.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'bolge/'+ bolge.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'bolge/'+ bolge.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

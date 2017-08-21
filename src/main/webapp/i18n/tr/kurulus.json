@@ -1,0 +1,36 @@
+{
+    "inventoryApp": {
+        "kurulus" : {
+            "home": {
+                "title": "Kuruluses",
+                "createLabel": "Create a new Kurulus",
+                "createOrEditLabel": "Create or edit a Kurulus"
+            },
+            "created": "A new Kurulus is created with identifier {{ param }}",
+            "updated": "A Kurulus is updated with identifier {{ param }}",
+            "deleted": "A Kurulus is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Kurulus {{ id }}?"
+            },
+            "detail": {
+                "title": "Kurulus"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "adi": "Adi",
+            "telefon": "Telefon",
+            "telefon2": "Telefon 2",
+            "fax": "Fax",
+            "email": "Email",
+            "webSitesi": "Web Sitesi",
+            "uyeSayisi": "Uye Sayisi",
+            "isyeriBilgileri": "Isyeri Bilgileri",
+            "kurulusTipi": "Kurulus Tipi",
+            "faaliyetAlani": "Faaliyet Alani",
+            "urunGrubu": "Urun Grubu",
+            "yetkiliKisi": "Yetkili Kisi",
+            "adres": "Adres",
+            "bulunduguIl": "Bulundugu Il"
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "inventoryApp": {
+        "medikalTurKodu" : {
+            "home": {
+                "title": "Medikal Tur Kodus",
+                "createLabel": "Create a new Medikal Tur Kodu",
+                "createOrEditLabel": "Create or edit a Medikal Tur Kodu"
+            },
+            "created": "A new Medikal Tur Kodu is created with identifier {{ param }}",
+            "updated": "A Medikal Tur Kodu is updated with identifier {{ param }}",
+            "deleted": "A Medikal Tur Kodu is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Medikal Tur Kodu {{ id }}?"
+            },
+            "detail": {
+                "title": "Medikal Tur Kodu"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "kod": "Kod"
+        }
+    }
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Firma.
+    -->
+    <changeSet id="20170821141810-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="genel_bilgiler_id"
+                                 baseTableName="firma"
+                                 constraintName="fk_firma_genel_bilgiler_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="genel_firma_bilgileri"/>
+
+        <addForeignKeyConstraint baseColumnNames="isyeri_bilgileri_id"
+                                 baseTableName="firma"
+                                 constraintName="fk_firma_isyeri_bilgileri_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="isyeri_bilgileri"/>
+
+        <addForeignKeyConstraint baseColumnNames="ortaklik_bilgileri_id"
+                                 baseTableName="firma"
+                                 constraintName="fk_firma_ortaklik_bilgileri_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ortaklik_bilgileri"/>
+
+        <addForeignKeyConstraint baseColumnNames="finansal_bilgileri_id"
+                                 baseTableName="firma"
+                                 constraintName="fk_firma_finansal_bilgileri_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="finansal_bilgileri"/>
+
+    </changeSet>
+</databaseChangeLog>

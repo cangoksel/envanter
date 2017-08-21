@@ -1,0 +1,84 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myYillikCiroLabel" jhiTranslate="inventoryApp.yillikCiro.home.createOrEditLabel">Create or edit a Yillik Ciro</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!yillikCiro.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="yillikCiro.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.yillikCiro.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                [(ngModel)]="yillikCiro.deleted"  />
+            <div [hidden]="!(editForm.controls.deleted?.dirty && editForm.controls.deleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.deleted?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.yillikCiro.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="yillikCiro.version" required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.yillikCiro.yil" for="field_yil">Yil</label>
+            <div class="input-group">
+                <input id="field_yil" type="text" class="form-control" name="yil" ngbDatepicker  #yilDp="ngbDatepicker" [(ngModel)]="yillikCiro.yil"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="yilDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.yil?.dirty && editForm.controls.yil?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.yil?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.yillikCiro.ciroTutar" for="field_ciroTutar">Ciro Tutar</label>
+            <input type="number" class="form-control" name="ciroTutar" id="field_ciroTutar"
+                [(ngModel)]="yillikCiro.ciroTutar"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.yillikCiro.ciroPB" for="field_ciroPB">Ciro PB</label>
+            <input type="text" class="form-control" name="ciroPB" id="field_ciroPB"
+                [(ngModel)]="yillikCiro.ciroPB"  />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.yillikCiro.finansalBilgileri" for="field_finansalBilgileri">Finansal Bilgileri</label>
+            <select class="form-control" id="field_finansalBilgileri" name="finansalBilgileri" [(ngModel)]="yillikCiro.finansalBilgileri" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="finansalBilgileriOption.id === yillikCiro.finansalBilgileri?.id ? yillikCiro.finansalBilgileri : finansalBilgileriOption" *ngFor="let finansalBilgileriOption of finansalbilgileris; trackBy: trackFinansalBilgileriById">{{finansalBilgileriOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity CalisanSayiBilgisi.
+    -->
+    <changeSet id="20170821141821-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="isyeri_bilgileri_id"
+                                 baseTableName="calisan_sayi_bilgisi"
+                                 constraintName="fk_calisan_sayi_bilgisi_isyeri_bilgileri_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="isyeri_bilgileri"/>
+
+        <addForeignKeyConstraint baseColumnNames="calisan_tipi_id"
+                                 baseTableName="calisan_sayi_bilgisi"
+                                 constraintName="fk_calisan_sayi_bilgisi_calisan_tipi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="calisan_tipi"/>
+
+    </changeSet>
+</databaseChangeLog>

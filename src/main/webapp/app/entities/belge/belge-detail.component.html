@@ -1,0 +1,74 @@
+
+<div *ngIf="belge">
+    <h2><span jhiTranslate="inventoryApp.belge.detail.title">Belge</span> {{belge.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.belge.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{belge.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.belge.version">Version</span></dt>
+        <dd>
+            <span>{{belge.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.belge.belgeAdi">Belge Adi</span></dt>
+        <dd>
+            <span>{{belge.belgeAdi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.belge.belgeBoyutu">Belge Boyutu</span></dt>
+        <dd>
+            <span>{{belge.belgeBoyutu}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.belge.olusturmaZamani">Olusturma Zamani</span></dt>
+        <dd>
+            <span>{{belge.olusturmaZamani | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.belge.silinebilirMi">Silinebilir Mi</span></dt>
+        <dd>
+            <span>{{belge.silinebilirMi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.belge.aciklama">Aciklama</span></dt>
+        <dd>
+            <span>{{belge.aciklama}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.belge.content">Content</span></dt>
+        <dd>
+            <div *ngIf="belge.content">
+                <a (click)="openFile(belge.contentContentType, belge.content)" jhiTranslate="entity.action.open">open</a>
+                {{belge.contentContentType}}, {{byteSize(belge.content)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.belge.belgeTipi">Belge Tipi</span></dt>
+        <dd>
+            <div *ngIf="belge.belgeTipi">
+                <a [routerLink]="['/belge-tipi', belge.belgeTipi?.id]">{{belge.belgeTipi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.belge.urun">Urun</span></dt>
+        <dd>
+            <div *ngIf="belge.urun">
+                <a [routerLink]="['/urun', belge.urun?.id]">{{belge.urun?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.belge.isyeriBilgileri">Isyeri Bilgileri</span></dt>
+        <dd>
+            <div *ngIf="belge.isyeriBilgileri">
+                <a [routerLink]="['/isyeri-bilgileri', belge.isyeriBilgileri?.id]">{{belge.isyeriBilgileri?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'belge/'+ belge.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

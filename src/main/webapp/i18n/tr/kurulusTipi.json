@@ -1,0 +1,23 @@
+{
+    "inventoryApp": {
+        "kurulusTipi" : {
+            "home": {
+                "title": "Kurulus Tipis",
+                "createLabel": "Create a new Kurulus Tipi",
+                "createOrEditLabel": "Create or edit a Kurulus Tipi"
+            },
+            "created": "A new Kurulus Tipi is created with identifier {{ param }}",
+            "updated": "A Kurulus Tipi is updated with identifier {{ param }}",
+            "deleted": "A Kurulus Tipi is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Kurulus Tipi {{ id }}?"
+            },
+            "detail": {
+                "title": "Kurulus Tipi"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "label": "Label"
+        }
+    }
+}

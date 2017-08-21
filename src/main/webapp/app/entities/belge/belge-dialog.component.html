@@ -1,0 +1,154 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myBelgeLabel" jhiTranslate="inventoryApp.belge.home.createOrEditLabel">Create or edit a Belge</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!belge.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="belge.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.belge.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                [(ngModel)]="belge.deleted"  />
+            <div [hidden]="!(editForm.controls.deleted?.dirty && editForm.controls.deleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.deleted?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.belge.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="belge.version" required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.belge.belgeAdi" for="field_belgeAdi">Belge Adi</label>
+            <input type="text" class="form-control" name="belgeAdi" id="field_belgeAdi"
+                [(ngModel)]="belge.belgeAdi" required />
+            <div [hidden]="!(editForm.controls.belgeAdi?.dirty && editForm.controls.belgeAdi?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.belgeAdi?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.belge.belgeBoyutu" for="field_belgeBoyutu">Belge Boyutu</label>
+            <input type="number" class="form-control" name="belgeBoyutu" id="field_belgeBoyutu"
+                [(ngModel)]="belge.belgeBoyutu" required />
+            <div [hidden]="!(editForm.controls.belgeBoyutu?.dirty && editForm.controls.belgeBoyutu?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.belgeBoyutu?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.belgeBoyutu?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.belge.olusturmaZamani" for="field_olusturmaZamani">Olusturma Zamani</label>
+            <div class="input-group">
+                <input id="field_olusturmaZamani" type="text" class="form-control" name="olusturmaZamani" ngbDatepicker  #olusturmaZamaniDp="ngbDatepicker" [(ngModel)]="belge.olusturmaZamani"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="olusturmaZamaniDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.olusturmaZamani?.dirty && editForm.controls.olusturmaZamani?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.olusturmaZamani?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.belge.silinebilirMi" for="field_silinebilirMi">Silinebilir Mi</label>
+            <input type="checkbox" class="form-control" name="silinebilirMi" id="field_silinebilirMi"
+                [(ngModel)]="belge.silinebilirMi"  />
+            <div [hidden]="!(editForm.controls.silinebilirMi?.dirty && editForm.controls.silinebilirMi?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.silinebilirMi?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.belge.aciklama" for="field_aciklama">Aciklama</label>
+            <input type="text" class="form-control" name="aciklama" id="field_aciklama"
+                [(ngModel)]="belge.aciklama"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.belge.content" for="field_content">Content</label>
+            <div>
+                <div *ngIf="belge.content" class="form-text text-danger clearfix">
+                    <a class="pull-left" (click)="openFile(belge.contentContentType, belge.content)" jhiTranslate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{belge.contentContentType}}, {{byteSize(belge.content)}}</span>
+                    <button type="button" (click)="belge.content=null;belge.contentContentType=null;"
+                            class="btn btn-default btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" (change)="setFileData($event, belge, 'content', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="content" id="field_content"
+                [(ngModel)]="belge.content" required />
+            <input type="hidden" class="form-control" name="contentContentType" id="field_contentContentType"
+                [(ngModel)]="belge.contentContentType" />
+            <div [hidden]="!(editForm.controls.content?.dirty && editForm.controls.content?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.content?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.belge.belgeTipi" for="field_belgeTipi">Belge Tipi</label>
+            <select class="form-control" id="field_belgeTipi" name="belgeTipi" [(ngModel)]="belge.belgeTipi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="belgeTipiOption.id === belge.belgeTipi?.id ? belge.belgeTipi : belgeTipiOption" *ngFor="let belgeTipiOption of belgetipis; trackBy: trackBelgeTipiById">{{belgeTipiOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.belge.urun" for="field_urun">Urun</label>
+            <select class="form-control" id="field_urun" name="urun" [(ngModel)]="belge.urun" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="urunOption.id === belge.urun?.id ? belge.urun : urunOption" *ngFor="let urunOption of uruns; trackBy: trackUrunById">{{urunOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.belge.isyeriBilgileri" for="field_isyeriBilgileri">Isyeri Bilgileri</label>
+            <select class="form-control" id="field_isyeriBilgileri" name="isyeriBilgileri" [(ngModel)]="belge.isyeriBilgileri" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="isyeriBilgileriOption.id === belge.isyeriBilgileri?.id ? belge.isyeriBilgileri : isyeriBilgileriOption" *ngFor="let isyeriBilgileriOption of isyeribilgileris; trackBy: trackIsyeriBilgileriById">{{isyeriBilgileriOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,57 @@
+
+<div *ngIf="firma">
+    <h2><span jhiTranslate="inventoryApp.firma.detail.title">Firma</span> {{firma.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.firma.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{firma.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.firma.version">Version</span></dt>
+        <dd>
+            <span>{{firma.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.firma.firmaYetkinlikCalismasiYepildiMi">Firma Yetkinlik Calismasi Yepildi Mi</span></dt>
+        <dd>
+            <span>{{firma.firmaYetkinlikCalismasiYepildiMi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.firma.genelBilgiler">Genel Bilgiler</span></dt>
+        <dd>
+            <div *ngIf="firma.genelBilgiler">
+                <a [routerLink]="['/genel-firma-bilgileri', firma.genelBilgiler?.id]">{{firma.genelBilgiler?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.firma.isyeriBilgileri">Isyeri Bilgileri</span></dt>
+        <dd>
+            <div *ngIf="firma.isyeriBilgileri">
+                <a [routerLink]="['/isyeri-bilgileri', firma.isyeriBilgileri?.id]">{{firma.isyeriBilgileri?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.firma.ortaklikBilgileri">Ortaklik Bilgileri</span></dt>
+        <dd>
+            <div *ngIf="firma.ortaklikBilgileri">
+                <a [routerLink]="['/ortaklik-bilgileri', firma.ortaklikBilgileri?.id]">{{firma.ortaklikBilgileri?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.firma.finansalBilgileri">Finansal Bilgileri</span></dt>
+        <dd>
+            <div *ngIf="firma.finansalBilgileri">
+                <a [routerLink]="['/finansal-bilgileri', firma.finansalBilgileri?.id]">{{firma.finansalBilgileri?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'firma/'+ firma.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

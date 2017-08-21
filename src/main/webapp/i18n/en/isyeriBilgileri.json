@@ -1,0 +1,25 @@
+{
+    "inventoryApp": {
+        "isyeriBilgileri" : {
+            "home": {
+                "title": "Isyeri Bilgileris",
+                "createLabel": "Create a new Isyeri Bilgileri",
+                "createOrEditLabel": "Create or edit a Isyeri Bilgileri"
+            },
+            "created": "A new Isyeri Bilgileri is created with identifier {{ param }}",
+            "updated": "A Isyeri Bilgileri is updated with identifier {{ param }}",
+            "deleted": "A Isyeri Bilgileri is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Isyeri Bilgileri {{ id }}?"
+            },
+            "detail": {
+                "title": "Isyeri Bilgileri"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "kayitliOlduguKurulus": "Kayitli Oldugu Kurulus",
+            "calisanBilgi": "Calisan Bilgi",
+            "kaliteBelgesi": "Kalite Belgesi"
+        }
+    }
+}

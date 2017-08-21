@@ -1,0 +1,33 @@
+
+<div *ngIf="prodkomKodu">
+    <h2><span jhiTranslate="inventoryApp.prodkomKodu.detail.title">Prodkom Kodu</span> {{prodkomKodu.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.prodkomKodu.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{prodkomKodu.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.prodkomKodu.version">Version</span></dt>
+        <dd>
+            <span>{{prodkomKodu.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.prodkomKodu.kod">Kod</span></dt>
+        <dd>
+            <span>{{prodkomKodu.kod}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'prodkom-kodu/'+ prodkomKodu.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

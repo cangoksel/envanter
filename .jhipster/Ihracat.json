@@ -1,0 +1,59 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "finansalBilgileri",
+            "otherEntityName": "finansalBilgileri",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "yapilanUlke",
+            "otherEntityName": "ulke",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "ihracat"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ithalatTutar",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "ithalatPB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "miktar",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "yil",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170821141822",
+    "entityTableName": "ihracat",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

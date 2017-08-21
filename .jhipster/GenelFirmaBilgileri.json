@@ -1,0 +1,148 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "il",
+            "otherEntityName": "il",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "genelFirmaBilgileri"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ulke",
+            "otherEntityName": "ulke",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "genelFirmaBilgileri"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "kaydiOlusturanKisi",
+            "otherEntityName": "kisi",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "genelFirmaBilgileri"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "yetkiliKisi",
+            "otherEntityName": "kisi",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "genelFirmaBilgileri"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "faaliyetAlani",
+            "otherEntityName": "faaliyetAlani",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "genelFirmaBilgileri"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "urunGrubu",
+            "otherEntityName": "urunGrubu",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "genelFirmaBilgileri"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "faaliyetKodu",
+            "otherEntityName": "faaliyetKodu",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "genelFirmaBilgileri"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "adres",
+            "otherEntityName": "adres",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "genelFirmaBilgileri"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "firmaUnvan",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "kurulusTarihi",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "saglikSektorundeMi",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "sektorBilgisi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "argeBirimiVarMi",
+            "fieldType": "Boolean"
+        },
+        {
+            "fieldName": "ticaretSicilNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "vergiNo",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "acikAdress",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefon",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefon2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fax",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "webAdresi",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170821141813",
+    "entityTableName": "genel_firma_bilgileri",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

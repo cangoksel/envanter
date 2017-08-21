@@ -1,0 +1,23 @@
+{
+    "inventoryApp": {
+        "calisanTipi" : {
+            "home": {
+                "title": "Calisan Tipis",
+                "createLabel": "Create a new Calisan Tipi",
+                "createOrEditLabel": "Create or edit a Calisan Tipi"
+            },
+            "created": "A new Calisan Tipi is created with identifier {{ param }}",
+            "updated": "A Calisan Tipi is updated with identifier {{ param }}",
+            "deleted": "A Calisan Tipi is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Calisan Tipi {{ id }}?"
+            },
+            "detail": {
+                "title": "Calisan Tipi"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "label": "Label"
+        }
+    }
+}

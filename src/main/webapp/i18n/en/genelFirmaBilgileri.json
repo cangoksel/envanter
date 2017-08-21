@@ -1,0 +1,43 @@
+{
+    "inventoryApp": {
+        "genelFirmaBilgileri" : {
+            "home": {
+                "title": "Genel Firma Bilgileris",
+                "createLabel": "Create a new Genel Firma Bilgileri",
+                "createOrEditLabel": "Create or edit a Genel Firma Bilgileri"
+            },
+            "created": "A new Genel Firma Bilgileri is created with identifier {{ param }}",
+            "updated": "A Genel Firma Bilgileri is updated with identifier {{ param }}",
+            "deleted": "A Genel Firma Bilgileri is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Genel Firma Bilgileri {{ id }}?"
+            },
+            "detail": {
+                "title": "Genel Firma Bilgileri"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "firmaUnvan": "Firma Unvan",
+            "kurulusTarihi": "Kurulus Tarihi",
+            "saglikSektorundeMi": "Saglik Sektorunde Mi",
+            "sektorBilgisi": "Sektor Bilgisi",
+            "argeBirimiVarMi": "Arge Birimi Var Mi",
+            "ticaretSicilNo": "Ticaret Sicil No",
+            "vergiNo": "Vergi No",
+            "acikAdress": "Acik Adress",
+            "telefon": "Telefon",
+            "telefon2": "Telefon 2",
+            "fax": "Fax",
+            "email": "Email",
+            "webAdresi": "Web Adresi",
+            "il": "Il",
+            "ulke": "Ulke",
+            "kaydiOlusturanKisi": "Kaydi Olusturan Kisi",
+            "yetkiliKisi": "Yetkili Kisi",
+            "faaliyetAlani": "Faaliyet Alani",
+            "urunGrubu": "Urun Grubu",
+            "faaliyetKodu": "Faaliyet Kodu",
+            "adres": "Adres"
+        }
+    }
+}

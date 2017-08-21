@@ -1,0 +1,24 @@
+{
+    "inventoryApp": {
+        "kurum" : {
+            "home": {
+                "title": "Kurums",
+                "createLabel": "Create a new Kurum",
+                "createOrEditLabel": "Create or edit a Kurum"
+            },
+            "created": "A new Kurum is created with identifier {{ param }}",
+            "updated": "A Kurum is updated with identifier {{ param }}",
+            "deleted": "A Kurum is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Kurum {{ id }}?"
+            },
+            "detail": {
+                "title": "Kurum"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "yil": "Yil",
+            "adi": "Adi"
+        }
+    }
+}

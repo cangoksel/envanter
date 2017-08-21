@@ -1,0 +1,74 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myIsbirligiFirmaLabel" jhiTranslate="inventoryApp.isbirligiFirma.home.createOrEditLabel">Create or edit a Isbirligi Firma</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!isbirligiFirma.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="isbirligiFirma.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.isbirligiFirma.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                [(ngModel)]="isbirligiFirma.deleted"  />
+            <div [hidden]="!(editForm.controls.deleted?.dirty && editForm.controls.deleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.deleted?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.isbirligiFirma.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="isbirligiFirma.version" required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.isbirligiFirma.firmaAdi" for="field_firmaAdi">Firma Adi</label>
+            <input type="text" class="form-control" name="firmaAdi" id="field_firmaAdi"
+                [(ngModel)]="isbirligiFirma.firmaAdi" required />
+            <div [hidden]="!(editForm.controls.firmaAdi?.dirty && editForm.controls.firmaAdi?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.firmaAdi?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.isbirligiFirma.isbirligiKonsu" for="field_isbirligiKonsu">Isbirligi Konsu</label>
+            <input type="text" class="form-control" name="isbirligiKonsu" id="field_isbirligiKonsu"
+                [(ngModel)]="isbirligiFirma.isbirligiKonsu"  />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.isbirligiFirma.ortaklikBilgileri" for="field_ortaklikBilgileri">Ortaklik Bilgileri</label>
+            <select class="form-control" id="field_ortaklikBilgileri" name="ortaklikBilgileri" [(ngModel)]="isbirligiFirma.ortaklikBilgileri" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="ortaklikBilgileriOption.id === isbirligiFirma.ortaklikBilgileri?.id ? isbirligiFirma.ortaklikBilgileri : ortaklikBilgileriOption" *ngFor="let ortaklikBilgileriOption of ortaklikbilgileris; trackBy: trackOrtaklikBilgileriById">{{ortaklikBilgileriOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

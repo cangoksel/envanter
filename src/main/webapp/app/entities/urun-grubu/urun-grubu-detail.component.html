@@ -1,0 +1,33 @@
+
+<div *ngIf="urunGrubu">
+    <h2><span jhiTranslate="inventoryApp.urunGrubu.detail.title">Urun Grubu</span> {{urunGrubu.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.urunGrubu.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{urunGrubu.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urunGrubu.version">Version</span></dt>
+        <dd>
+            <span>{{urunGrubu.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urunGrubu.label">Label</span></dt>
+        <dd>
+            <span>{{urunGrubu.label}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'urun-grubu/'+ urunGrubu.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

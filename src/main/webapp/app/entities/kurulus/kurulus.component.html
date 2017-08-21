@@ -1,0 +1,114 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.kurulus.home.title">Kuruluses</span>
+        <button class="btn btn-primary float-right jh-create-entity create-kurulus" [routerLink]="['/', { outlets: { popup: ['kurulus-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.kurulus.home.createLabel">
+            Create new Kurulus
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="kuruluses">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.adi">Adi</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.telefon">Telefon</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.telefon2">Telefon 2</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.fax">Fax</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.email">Email</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.webSitesi">Web Sitesi</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.uyeSayisi">Uye Sayisi</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.isyeriBilgileri">Isyeri Bilgileri</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.kurulusTipi">Kurulus Tipi</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.faaliyetAlani">Faaliyet Alani</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.urunGrubu">Urun Grubu</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.yetkiliKisi">Yetkili Kisi</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.adres">Adres</span></th>
+            <th><span jhiTranslate="inventoryApp.kurulus.bulunduguIl">Bulundugu Il</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let kurulus of kuruluses ;trackBy: trackId">
+                <td><a [routerLink]="['../kurulus', kurulus.id ]">{{kurulus.id}}</a></td>
+                <td>{{kurulus.deleted}}</td>
+                <td>{{kurulus.version}}</td>
+                <td>{{kurulus.adi}}</td>
+                <td>{{kurulus.telefon}}</td>
+                <td>{{kurulus.telefon2}}</td>
+                <td>{{kurulus.fax}}</td>
+                <td>{{kurulus.email}}</td>
+                <td>{{kurulus.webSitesi}}</td>
+                <td>{{kurulus.uyeSayisi}}</td>
+                <td>
+                    <div *ngIf="kurulus.isyeriBilgileri">
+                        <a [routerLink]="['../isyeri-bilgileri', kurulus.isyeriBilgileri?.id ]" >{{kurulus.isyeriBilgileri?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="kurulus.kurulusTipi">
+                        <a [routerLink]="['../kurulus-tipi', kurulus.kurulusTipi?.id ]" >{{kurulus.kurulusTipi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="kurulus.faaliyetAlani">
+                        <a [routerLink]="['../faaliyet-alani', kurulus.faaliyetAlani?.id ]" >{{kurulus.faaliyetAlani?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="kurulus.urunGrubu">
+                        <a [routerLink]="['../urun-grubu', kurulus.urunGrubu?.id ]" >{{kurulus.urunGrubu?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="kurulus.yetkiliKisi">
+                        <a [routerLink]="['../kisi', kurulus.yetkiliKisi?.id ]" >{{kurulus.yetkiliKisi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="kurulus.adres">
+                        <a [routerLink]="['../adres', kurulus.adres?.id ]" >{{kurulus.adres?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="kurulus.bulunduguIl">
+                        <a [routerLink]="['../il', kurulus.bulunduguIl?.id ]" >{{kurulus.bulunduguIl?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../kurulus', kurulus.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'kurulus/'+ kurulus.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'kurulus/'+ kurulus.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

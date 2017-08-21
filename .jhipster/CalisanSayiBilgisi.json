@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "isyeriBilgileri",
+            "otherEntityName": "isyeriBilgileri",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "calisanTipi",
+            "otherEntityName": "calisanTipi",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "calisanSayiBilgisi"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "kisiSayisi",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20170821141821",
+    "entityTableName": "calisan_sayi_bilgisi",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

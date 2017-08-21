@@ -1,0 +1,83 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "genelBilgiler",
+            "otherEntityName": "genelFirmaBilgileri",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "firma"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "isyeriBilgileri",
+            "otherEntityName": "isyeriBilgileri",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "firma"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ortaklikBilgileri",
+            "otherEntityName": "ortaklikBilgileri",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "firma"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "finansalBilgileri",
+            "otherEntityName": "finansalBilgileri",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "firma"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "projeBilgi",
+            "otherEntityName": "projeBilgisi",
+            "otherEntityRelationshipName": "firma"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "tesisBilgisi",
+            "otherEntityName": "tesisBilgisi",
+            "otherEntityRelationshipName": "firma"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "uretimBilgisi",
+            "otherEntityName": "uretimBilgisi",
+            "otherEntityRelationshipName": "firma"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "firmaYetkinlikCalismasiYepildiMi",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170821141810",
+    "entityTableName": "firma",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no"
+}

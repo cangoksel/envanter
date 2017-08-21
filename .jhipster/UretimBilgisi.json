@@ -1,0 +1,42 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "firma",
+            "otherEntityName": "firma",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "urun",
+            "otherEntityName": "urun",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "firmaAciklamasi",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170821141812",
+    "entityTableName": "uretim_bilgisi",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no"
+}

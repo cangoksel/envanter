@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Kurulus.
+    -->
+    <changeSet id="20170821141826-1" author="jhipster">
+        <createTable tableName="kurulus">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="deleted" type="boolean">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="version" type="bigint">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="adi" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="telefon" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="telefon_2" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="fax" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="email" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="web_sitesi" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="uye_sayisi" type="bigint">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="isyeri_bilgileri_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <column name="kurulus_tipi_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>            <column name="faaliyet_alani_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>            <column name="urun_grubu_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>            <column name="yetkili_kisi_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>            <column name="adres_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>            <column name="bulundugu_il_id" type="bigint">
+                <constraints unique="true" nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+</databaseChangeLog>

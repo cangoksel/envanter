@@ -1,0 +1,25 @@
+{
+    "inventoryApp": {
+        "tesisBilgisi" : {
+            "home": {
+                "title": "Tesis Bilgisis",
+                "createLabel": "Create a new Tesis Bilgisi",
+                "createOrEditLabel": "Create or edit a Tesis Bilgisi"
+            },
+            "created": "A new Tesis Bilgisi is created with identifier {{ param }}",
+            "updated": "A Tesis Bilgisi is updated with identifier {{ param }}",
+            "deleted": "A Tesis Bilgisi is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Tesis Bilgisi {{ id }}?"
+            },
+            "detail": {
+                "title": "Tesis Bilgisi"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "uretimAlani": "Uretim Alani",
+            "firma": "Firma",
+            "bulunduguUlke": "Bulundugu Ulke"
+        }
+    }
+}

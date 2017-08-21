@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity GenelFirmaBilgileri.
+    -->
+    <changeSet id="20170821141813-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="il_id"
+                                 baseTableName="genel_firma_bilgileri"
+                                 constraintName="fk_genel_firma_bilgileri_il_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="il"/>
+
+        <addForeignKeyConstraint baseColumnNames="ulke_id"
+                                 baseTableName="genel_firma_bilgileri"
+                                 constraintName="fk_genel_firma_bilgileri_ulke_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ulke"/>
+
+        <addForeignKeyConstraint baseColumnNames="kaydi_olusturan_kisi_id"
+                                 baseTableName="genel_firma_bilgileri"
+                                 constraintName="fk_genel_firma_bilgileri_kaydi_olusturan_kisi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="kisi"/>
+
+        <addForeignKeyConstraint baseColumnNames="yetkili_kisi_id"
+                                 baseTableName="genel_firma_bilgileri"
+                                 constraintName="fk_genel_firma_bilgileri_yetkili_kisi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="kisi"/>
+
+        <addForeignKeyConstraint baseColumnNames="faaliyet_alani_id"
+                                 baseTableName="genel_firma_bilgileri"
+                                 constraintName="fk_genel_firma_bilgileri_faaliyet_alani_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="faaliyet_alani"/>
+
+        <addForeignKeyConstraint baseColumnNames="urun_grubu_id"
+                                 baseTableName="genel_firma_bilgileri"
+                                 constraintName="fk_genel_firma_bilgileri_urun_grubu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="urun_grubu"/>
+
+        <addForeignKeyConstraint baseColumnNames="faaliyet_kodu_id"
+                                 baseTableName="genel_firma_bilgileri"
+                                 constraintName="fk_genel_firma_bilgileri_faaliyet_kodu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="faaliyet_kodu"/>
+
+        <addForeignKeyConstraint baseColumnNames="adres_id"
+                                 baseTableName="genel_firma_bilgileri"
+                                 constraintName="fk_genel_firma_bilgileri_adres_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adres"/>
+
+    </changeSet>
+</databaseChangeLog>

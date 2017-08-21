@@ -1,0 +1,45 @@
+
+<div *ngIf="uretimBilgisi">
+    <h2><span jhiTranslate="inventoryApp.uretimBilgisi.detail.title">Uretim Bilgisi</span> {{uretimBilgisi.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.uretimBilgisi.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{uretimBilgisi.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.uretimBilgisi.version">Version</span></dt>
+        <dd>
+            <span>{{uretimBilgisi.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.uretimBilgisi.firmaAciklamasi">Firma Aciklamasi</span></dt>
+        <dd>
+            <span>{{uretimBilgisi.firmaAciklamasi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.uretimBilgisi.firma">Firma</span></dt>
+        <dd>
+            <div *ngIf="uretimBilgisi.firma">
+                <a [routerLink]="['/firma', uretimBilgisi.firma?.id]">{{uretimBilgisi.firma?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.uretimBilgisi.urun">Urun</span></dt>
+        <dd>
+            <div *ngIf="uretimBilgisi.urun">
+                <a [routerLink]="['/urun', uretimBilgisi.urun?.id]">{{uretimBilgisi.urun?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'uretim-bilgisi/'+ uretimBilgisi.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

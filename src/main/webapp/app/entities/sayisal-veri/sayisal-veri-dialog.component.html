@@ -1,0 +1,114 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySayisalVeriLabel" jhiTranslate="inventoryApp.sayisalVeri.home.createOrEditLabel">Create or edit a Sayisal Veri</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!sayisalVeri.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="sayisalVeri.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.sayisalVeri.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                [(ngModel)]="sayisalVeri.deleted"  />
+            <div [hidden]="!(editForm.controls.deleted?.dirty && editForm.controls.deleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.deleted?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.sayisalVeri.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="sayisalVeri.version" required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.sayisalVeri.yil" for="field_yil">Yil</label>
+            <div class="input-group">
+                <input id="field_yil" type="text" class="form-control" name="yil" ngbDatepicker  #yilDp="ngbDatepicker" [(ngModel)]="sayisalVeri.yil"
+                required/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="yilDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+            <div [hidden]="!(editForm.controls.yil?.dirty && editForm.controls.yil?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.yil?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.sayisalVeri.ithalatMiktari" for="field_ithalatMiktari">Ithalat Miktari</label>
+            <input type="number" class="form-control" name="ithalatMiktari" id="field_ithalatMiktari"
+                [(ngModel)]="sayisalVeri.ithalatMiktari"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.sayisalVeri.ihtiyacMiktari" for="field_ihtiyacMiktari">Ihtiyac Miktari</label>
+            <input type="number" class="form-control" name="ihtiyacMiktari" id="field_ihtiyacMiktari"
+                [(ngModel)]="sayisalVeri.ihtiyacMiktari"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.sayisalVeri.birimFiyatTutar" for="field_birimFiyatTutar">Birim Fiyat Tutar</label>
+            <input type="number" class="form-control" name="birimFiyatTutar" id="field_birimFiyatTutar"
+                [(ngModel)]="sayisalVeri.birimFiyatTutar"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.sayisalVeri.birimFiyatPB" for="field_birimFiyatPB">Birim Fiyat PB</label>
+            <input type="text" class="form-control" name="birimFiyatPB" id="field_birimFiyatPB"
+                [(ngModel)]="sayisalVeri.birimFiyatPB"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.sayisalVeri.dunyaPazariTutar" for="field_dunyaPazariTutar">Dunya Pazari Tutar</label>
+            <input type="number" class="form-control" name="dunyaPazariTutar" id="field_dunyaPazariTutar"
+                [(ngModel)]="sayisalVeri.dunyaPazariTutar"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.sayisalVeri.dunyaPazariPB" for="field_dunyaPazariPB">Dunya Pazari PB</label>
+            <input type="text" class="form-control" name="dunyaPazariPB" id="field_dunyaPazariPB"
+                [(ngModel)]="sayisalVeri.dunyaPazariPB"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.sayisalVeri.turkiyePazariTutar" for="field_turkiyePazariTutar">Turkiye Pazari Tutar</label>
+            <input type="number" class="form-control" name="turkiyePazariTutar" id="field_turkiyePazariTutar"
+                [(ngModel)]="sayisalVeri.turkiyePazariTutar"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.sayisalVeri.turkiyePazariPB" for="field_turkiyePazariPB">Turkiye Pazari PB</label>
+            <input type="text" class="form-control" name="turkiyePazariPB" id="field_turkiyePazariPB"
+                [(ngModel)]="sayisalVeri.turkiyePazariPB"  />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.sayisalVeri.urun" for="field_urun">Urun</label>
+            <select class="form-control" id="field_urun" name="urun" [(ngModel)]="sayisalVeri.urun" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="urunOption.id === sayisalVeri.urun?.id ? sayisalVeri.urun : urunOption" *ngFor="let urunOption of uruns; trackBy: trackUrunById">{{urunOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

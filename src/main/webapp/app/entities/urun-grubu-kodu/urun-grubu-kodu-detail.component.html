@@ -1,0 +1,37 @@
+
+<div *ngIf="urunGrubuKodu">
+    <h2><span jhiTranslate="inventoryApp.urunGrubuKodu.detail.title">Urun Grubu Kodu</span> {{urunGrubuKodu.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.urunGrubuKodu.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{urunGrubuKodu.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urunGrubuKodu.version">Version</span></dt>
+        <dd>
+            <span>{{urunGrubuKodu.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urunGrubuKodu.urunGrubuKoduAdi">Urun Grubu Kodu Adi</span></dt>
+        <dd>
+            <span>{{urunGrubuKodu.urunGrubuKoduAdi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urunGrubuKodu.urunGrubuKod">Urun Grubu Kod</span></dt>
+        <dd>
+            <span>{{urunGrubuKodu.urunGrubuKod}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'urun-grubu-kodu/'+ urunGrubuKodu.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

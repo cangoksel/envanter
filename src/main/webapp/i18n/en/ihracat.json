@@ -1,0 +1,28 @@
+{
+    "inventoryApp": {
+        "ihracat" : {
+            "home": {
+                "title": "Ihracats",
+                "createLabel": "Create a new Ihracat",
+                "createOrEditLabel": "Create or edit a Ihracat"
+            },
+            "created": "A new Ihracat is created with identifier {{ param }}",
+            "updated": "A Ihracat is updated with identifier {{ param }}",
+            "deleted": "A Ihracat is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Ihracat {{ id }}?"
+            },
+            "detail": {
+                "title": "Ihracat"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "ithalatTutar": "Ithalat Tutar",
+            "ithalatPB": "Ithalat PB",
+            "miktar": "Miktar",
+            "yil": "Yil",
+            "finansalBilgileri": "Finansal Bilgileri",
+            "yapilanUlke": "Yapilan Ulke"
+        }
+    }
+}

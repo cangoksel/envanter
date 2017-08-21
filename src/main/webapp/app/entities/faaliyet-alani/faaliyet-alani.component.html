@@ -1,0 +1,60 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.faaliyetAlani.home.title">Faaliyet Alanis</span>
+        <button class="btn btn-primary float-right jh-create-entity create-faaliyet-alani" [routerLink]="['/', { outlets: { popup: ['faaliyet-alani-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.faaliyetAlani.home.createLabel">
+            Create new Faaliyet Alani
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="faaliyetAlanis">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.faaliyetAlani.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.faaliyetAlani.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.faaliyetAlani.label">Label</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let faaliyetAlani of faaliyetAlanis ;trackBy: trackId">
+                <td><a [routerLink]="['../faaliyet-alani', faaliyetAlani.id ]">{{faaliyetAlani.id}}</a></td>
+                <td>{{faaliyetAlani.deleted}}</td>
+                <td>{{faaliyetAlani.version}}</td>
+                <td>{{faaliyetAlani.label}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../faaliyet-alani', faaliyetAlani.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'faaliyet-alani/'+ faaliyetAlani.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'faaliyet-alani/'+ faaliyetAlani.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

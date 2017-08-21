@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141756_added_entity_UrunGrubuKodu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141757_added_entity_UrunKodu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141758_added_entity_UrunAltKodu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141759_added_entity_MedikalTurKodu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141800_added_entity_MkysKodu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141801_added_entity_ActKodu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141802_added_entity_GtipKodu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141803_added_entity_NaceKodu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141804_added_entity_TibbiCihazTehlikeSinifi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141805_added_entity_ProdkomKodu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141806_added_entity_SayisalVeri.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141807_added_entity_BelgeTipi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141808_added_entity_Belge.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141809_added_entity_Urun.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141810_added_entity_Firma.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141811_added_entity_ProjeBilgisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141812_added_entity_UretimBilgisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141813_added_entity_GenelFirmaBilgileri.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141814_added_entity_IsyeriBilgileri.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141815_added_entity_YillikCiro.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141816_added_entity_FinansalBilgileri.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141817_added_entity_Kurum.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141818_added_entity_OrtaklikBilgileri.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141819_added_entity_IsbirligiFirma.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141820_added_entity_FaaliyetKodu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141821_added_entity_CalisanSayiBilgisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141822_added_entity_Ihracat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141823_added_entity_TesisBilgisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141824_added_entity_Adres.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141825_added_entity_Kisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141826_added_entity_Kurulus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141827_added_entity_UrunGrubu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141828_added_entity_CalisanTipi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141829_added_entity_FaaliyetAlani.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141830_added_entity_KurulusTipi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141831_added_entity_Ulke.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141832_added_entity_Il.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141833_added_entity_Bolge.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20170821141757_added_entity_constraints_UrunKodu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141758_added_entity_constraints_UrunAltKodu.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141806_added_entity_constraints_SayisalVeri.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141808_added_entity_constraints_Belge.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141809_added_entity_constraints_Urun.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141810_added_entity_constraints_Firma.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141811_added_entity_constraints_ProjeBilgisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141812_added_entity_constraints_UretimBilgisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141813_added_entity_constraints_GenelFirmaBilgileri.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141815_added_entity_constraints_YillikCiro.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141819_added_entity_constraints_IsbirligiFirma.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141821_added_entity_constraints_CalisanSayiBilgisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141822_added_entity_constraints_Ihracat.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141823_added_entity_constraints_TesisBilgisi.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141824_added_entity_constraints_Adres.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141826_added_entity_constraints_Kurulus.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20170821141832_added_entity_constraints_Il.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

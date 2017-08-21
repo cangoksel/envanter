@@ -1,0 +1,47 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "finansalBilgileri",
+            "otherEntityName": "finansalBilgileri",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "yil",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ciroTutar",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "ciroPB",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170821141815",
+    "entityTableName": "yillik_ciro",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

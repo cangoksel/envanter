@@ -1,0 +1,116 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.urun.home.title">Uruns</span>
+        <button class="btn btn-primary float-right jh-create-entity create-urun" [routerLink]="['/', { outlets: { popup: ['urun-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.urun.home.createLabel">
+            Create new Urun
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="uruns">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="reset.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="deleted"><span jhiTranslate="inventoryApp.urun.deleted">Deleted</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="version"><span jhiTranslate="inventoryApp.urun.version">Version</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="tanimi"><span jhiTranslate="inventoryApp.urun.tanimi">Tanimi</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="kullanimAlanlari"><span jhiTranslate="inventoryApp.urun.kullanimAlanlari">Kullanim Alanlari</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="cesitleri"><span jhiTranslate="inventoryApp.urun.cesitleri">Cesitleri</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="endikasyonlari"><span jhiTranslate="inventoryApp.urun.endikasyonlari">Endikasyonlari</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="formlari"><span jhiTranslate="inventoryApp.urun.formlari">Formlari</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="urunAltKodu.id"><span jhiTranslate="inventoryApp.urun.urunAltKodu">Urun Alt Kodu</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="prodkomKodu.id"><span jhiTranslate="inventoryApp.urun.prodkomKodu">Prodkom Kodu</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="gtipKodu.id"><span jhiTranslate="inventoryApp.urun.gtipKodu">Gtip Kodu</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="mkysKodu.id"><span jhiTranslate="inventoryApp.urun.mkysKodu">Mkys Kodu</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="medikalTurKodu.id"><span jhiTranslate="inventoryApp.urun.medikalTurKodu">Medikal Tur Kodu</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="naceKodu.id"><span jhiTranslate="inventoryApp.urun.naceKodu">Nace Kodu</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="actKodu.id"><span jhiTranslate="inventoryApp.urun.actKodu">Act Kodu</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="tibbiCihazTehlikeSinifi.id"><span jhiTranslate="inventoryApp.urun.tibbiCihazTehlikeSinifi">Tibbi Cihaz Tehlike Sinifi</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody infinite-scroll (scrolled)="loadPage(page + 1)" [infiniteScrollDisabled]="page >= links['last']" [infiniteScrollDistance]="0">
+            <tr *ngFor="let urun of uruns ;trackBy: trackId">
+                <td><a [routerLink]="['../urun', urun.id ]">{{urun.id}}</a></td>
+                <td>{{urun.deleted}}</td>
+                <td>{{urun.version}}</td>
+                <td>{{urun.tanimi}}</td>
+                <td>{{urun.kullanimAlanlari}}</td>
+                <td>{{urun.cesitleri}}</td>
+                <td>{{urun.endikasyonlari}}</td>
+                <td>{{urun.formlari}}</td>
+                <td>
+                    <div *ngIf="urun.urunAltKodu">
+                        <a [routerLink]="['../urun-alt-kodu', urun.urunAltKodu?.id ]" >{{urun.urunAltKodu?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="urun.prodkomKodu">
+                        <a [routerLink]="['../prodkom-kodu', urun.prodkomKodu?.id ]" >{{urun.prodkomKodu?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="urun.gtipKodu">
+                        <a [routerLink]="['../gtip-kodu', urun.gtipKodu?.id ]" >{{urun.gtipKodu?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="urun.mkysKodu">
+                        <a [routerLink]="['../mkys-kodu', urun.mkysKodu?.id ]" >{{urun.mkysKodu?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="urun.medikalTurKodu">
+                        <a [routerLink]="['../medikal-tur-kodu', urun.medikalTurKodu?.id ]" >{{urun.medikalTurKodu?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="urun.naceKodu">
+                        <a [routerLink]="['../nace-kodu', urun.naceKodu?.id ]" >{{urun.naceKodu?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="urun.actKodu">
+                        <a [routerLink]="['../act-kodu', urun.actKodu?.id ]" >{{urun.actKodu?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="urun.tibbiCihazTehlikeSinifi">
+                        <a [routerLink]="['../tibbi-cihaz-tehlike-sinifi', urun.tibbiCihazTehlikeSinifi?.id ]" >{{urun.tibbiCihazTehlikeSinifi?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../urun', urun.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'urun/'+ urun.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'urun/'+ urun.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

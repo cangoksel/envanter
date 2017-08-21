@@ -1,0 +1,43 @@
+
+<div *ngIf="urunKodu">
+    <h2><span jhiTranslate="inventoryApp.urunKodu.detail.title">Urun Kodu</span> {{urunKodu.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.urunKodu.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{urunKodu.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urunKodu.version">Version</span></dt>
+        <dd>
+            <span>{{urunKodu.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urunKodu.urunKoduAdi">Urun Kodu Adi</span></dt>
+        <dd>
+            <span>{{urunKodu.urunKoduAdi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urunKodu.urunKod">Urun Kod</span></dt>
+        <dd>
+            <span>{{urunKodu.urunKod}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.urunKodu.urunGrubuKodu">Urun Grubu Kodu</span></dt>
+        <dd>
+            <div *ngIf="urunKodu.urunGrubuKodu">
+                <a [routerLink]="['/urun-grubu-kodu', urunKodu.urunGrubuKodu?.id]">{{urunKodu.urunGrubuKodu?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'urun-kodu/'+ urunKodu.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

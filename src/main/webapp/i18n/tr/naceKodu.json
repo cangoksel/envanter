@@ -1,0 +1,23 @@
+{
+    "inventoryApp": {
+        "naceKodu" : {
+            "home": {
+                "title": "Nace Kodus",
+                "createLabel": "Create a new Nace Kodu",
+                "createOrEditLabel": "Create or edit a Nace Kodu"
+            },
+            "created": "A new Nace Kodu is created with identifier {{ param }}",
+            "updated": "A Nace Kodu is updated with identifier {{ param }}",
+            "deleted": "A Nace Kodu is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Nace Kodu {{ id }}?"
+            },
+            "detail": {
+                "title": "Nace Kodu"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "kod": "Kod"
+        }
+    }
+}

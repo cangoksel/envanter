@@ -1,0 +1,33 @@
+
+<div *ngIf="actKodu">
+    <h2><span jhiTranslate="inventoryApp.actKodu.detail.title">Act Kodu</span> {{actKodu.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.actKodu.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{actKodu.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.actKodu.version">Version</span></dt>
+        <dd>
+            <span>{{actKodu.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.actKodu.kod">Kod</span></dt>
+        <dd>
+            <span>{{actKodu.kod}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'act-kodu/'+ actKodu.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

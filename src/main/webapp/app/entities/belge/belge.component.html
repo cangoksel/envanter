@@ -1,0 +1,91 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.belge.home.title">Belges</span>
+        <button class="btn btn-primary float-right jh-create-entity create-belge" [routerLink]="['/', { outlets: { popup: ['belge-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.belge.home.createLabel">
+            Create new Belge
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="belges">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.belge.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.belge.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.belge.belgeAdi">Belge Adi</span></th>
+            <th><span jhiTranslate="inventoryApp.belge.belgeBoyutu">Belge Boyutu</span></th>
+            <th><span jhiTranslate="inventoryApp.belge.olusturmaZamani">Olusturma Zamani</span></th>
+            <th><span jhiTranslate="inventoryApp.belge.silinebilirMi">Silinebilir Mi</span></th>
+            <th><span jhiTranslate="inventoryApp.belge.aciklama">Aciklama</span></th>
+            <th><span jhiTranslate="inventoryApp.belge.content">Content</span></th>
+            <th><span jhiTranslate="inventoryApp.belge.belgeTipi">Belge Tipi</span></th>
+            <th><span jhiTranslate="inventoryApp.belge.urun">Urun</span></th>
+            <th><span jhiTranslate="inventoryApp.belge.isyeriBilgileri">Isyeri Bilgileri</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let belge of belges ;trackBy: trackId">
+                <td><a [routerLink]="['../belge', belge.id ]">{{belge.id}}</a></td>
+                <td>{{belge.deleted}}</td>
+                <td>{{belge.version}}</td>
+                <td>{{belge.belgeAdi}}</td>
+                <td>{{belge.belgeBoyutu}}</td>
+                <td>{{belge.olusturmaZamani | date:'mediumDate'}}</td>
+                <td>{{belge.silinebilirMi}}</td>
+                <td>{{belge.aciklama}}</td>
+                <td>
+                    <a *ngIf="belge.content" (click)="openFile(belge.contentContentType, belge.content)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="belge.content">{{belge.contentContentType}}, {{byteSize(belge.content)}}</span>
+                </td>
+                <td>
+                    <div *ngIf="belge.belgeTipi">
+                        <a [routerLink]="['../belge-tipi', belge.belgeTipi?.id ]" >{{belge.belgeTipi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="belge.urun">
+                        <a [routerLink]="['../urun', belge.urun?.id ]" >{{belge.urun?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="belge.isyeriBilgileri">
+                        <a [routerLink]="['../isyeri-bilgileri', belge.isyeriBilgileri?.id ]" >{{belge.isyeriBilgileri?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../belge', belge.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'belge/'+ belge.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'belge/'+ belge.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myUrunLabel" jhiTranslate="inventoryApp.urun.home.createOrEditLabel">Create or edit a Urun</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!urun.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="urun.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.urun.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                [(ngModel)]="urun.deleted"  />
+            <div [hidden]="!(editForm.controls.deleted?.dirty && editForm.controls.deleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.deleted?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.urun.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="urun.version" required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.urun.tanimi" for="field_tanimi">Tanimi</label>
+            <input type="text" class="form-control" name="tanimi" id="field_tanimi"
+                [(ngModel)]="urun.tanimi"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.urun.kullanimAlanlari" for="field_kullanimAlanlari">Kullanim Alanlari</label>
+            <input type="text" class="form-control" name="kullanimAlanlari" id="field_kullanimAlanlari"
+                [(ngModel)]="urun.kullanimAlanlari"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.urun.cesitleri" for="field_cesitleri">Cesitleri</label>
+            <input type="text" class="form-control" name="cesitleri" id="field_cesitleri"
+                [(ngModel)]="urun.cesitleri"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.urun.endikasyonlari" for="field_endikasyonlari">Endikasyonlari</label>
+            <input type="text" class="form-control" name="endikasyonlari" id="field_endikasyonlari"
+                [(ngModel)]="urun.endikasyonlari"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.urun.formlari" for="field_formlari">Formlari</label>
+            <input type="text" class="form-control" name="formlari" id="field_formlari"
+                [(ngModel)]="urun.formlari"  />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.urun.urunAltKodu" for="field_urunAltKodu">Urun Alt Kodu</label>
+            <select class="form-control" id="field_urunAltKodu" name="urunAltKodu" [(ngModel)]="urun.urunAltKodu">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="urunAltKoduOption.id === urun.urunAltKodu?.id ? urun.urunAltKodu : urunAltKoduOption" *ngFor="let urunAltKoduOption of urunaltkodus; trackBy: trackUrunAltKoduById">{{urunAltKoduOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.urun.prodkomKodu" for="field_prodkomKodu">Prodkom Kodu</label>
+            <select class="form-control" id="field_prodkomKodu" name="prodkomKodu" [(ngModel)]="urun.prodkomKodu">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="prodkomKoduOption.id === urun.prodkomKodu?.id ? urun.prodkomKodu : prodkomKoduOption" *ngFor="let prodkomKoduOption of prodkomkodus; trackBy: trackProdkomKoduById">{{prodkomKoduOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.urun.gtipKodu" for="field_gtipKodu">Gtip Kodu</label>
+            <select class="form-control" id="field_gtipKodu" name="gtipKodu" [(ngModel)]="urun.gtipKodu">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="gtipKoduOption.id === urun.gtipKodu?.id ? urun.gtipKodu : gtipKoduOption" *ngFor="let gtipKoduOption of gtipkodus; trackBy: trackGtipKoduById">{{gtipKoduOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.urun.mkysKodu" for="field_mkysKodu">Mkys Kodu</label>
+            <select class="form-control" id="field_mkysKodu" name="mkysKodu" [(ngModel)]="urun.mkysKodu">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="mkysKoduOption.id === urun.mkysKodu?.id ? urun.mkysKodu : mkysKoduOption" *ngFor="let mkysKoduOption of mkyskodus; trackBy: trackMkysKoduById">{{mkysKoduOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.urun.medikalTurKodu" for="field_medikalTurKodu">Medikal Tur Kodu</label>
+            <select class="form-control" id="field_medikalTurKodu" name="medikalTurKodu" [(ngModel)]="urun.medikalTurKodu">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="medikalTurKoduOption.id === urun.medikalTurKodu?.id ? urun.medikalTurKodu : medikalTurKoduOption" *ngFor="let medikalTurKoduOption of medikalturkodus; trackBy: trackMedikalTurKoduById">{{medikalTurKoduOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.urun.naceKodu" for="field_naceKodu">Nace Kodu</label>
+            <select class="form-control" id="field_naceKodu" name="naceKodu" [(ngModel)]="urun.naceKodu">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="naceKoduOption.id === urun.naceKodu?.id ? urun.naceKodu : naceKoduOption" *ngFor="let naceKoduOption of nacekodus; trackBy: trackNaceKoduById">{{naceKoduOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.urun.actKodu" for="field_actKodu">Act Kodu</label>
+            <select class="form-control" id="field_actKodu" name="actKodu" [(ngModel)]="urun.actKodu">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="actKoduOption.id === urun.actKodu?.id ? urun.actKodu : actKoduOption" *ngFor="let actKoduOption of actkodus; trackBy: trackActKoduById">{{actKoduOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.urun.tibbiCihazTehlikeSinifi" for="field_tibbiCihazTehlikeSinifi">Tibbi Cihaz Tehlike Sinifi</label>
+            <select class="form-control" id="field_tibbiCihazTehlikeSinifi" name="tibbiCihazTehlikeSinifi" [(ngModel)]="urun.tibbiCihazTehlikeSinifi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="tibbiCihazTehlikeSinifiOption.id === urun.tibbiCihazTehlikeSinifi?.id ? urun.tibbiCihazTehlikeSinifi : tibbiCihazTehlikeSinifiOption" *ngFor="let tibbiCihazTehlikeSinifiOption of tibbicihaztehlikesinifis; trackBy: trackTibbiCihazTehlikeSinifiById">{{tibbiCihazTehlikeSinifiOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

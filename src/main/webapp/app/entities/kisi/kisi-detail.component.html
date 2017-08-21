@@ -1,0 +1,37 @@
+
+<div *ngIf="kisi">
+    <h2><span jhiTranslate="inventoryApp.kisi.detail.title">Kisi</span> {{kisi.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.kisi.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{kisi.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kisi.version">Version</span></dt>
+        <dd>
+            <span>{{kisi.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kisi.adi">Adi</span></dt>
+        <dd>
+            <span>{{kisi.adi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kisi.soyadi">Soyadi</span></dt>
+        <dd>
+            <span>{{kisi.soyadi}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'kisi/'+ kisi.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

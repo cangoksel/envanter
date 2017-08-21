@@ -1,0 +1,25 @@
+{
+    "inventoryApp": {
+        "projeBilgisi" : {
+            "home": {
+                "title": "Proje Bilgisis",
+                "createLabel": "Create a new Proje Bilgisi",
+                "createOrEditLabel": "Create or edit a Proje Bilgisi"
+            },
+            "created": "A new Proje Bilgisi is created with identifier {{ param }}",
+            "updated": "A Proje Bilgisi is updated with identifier {{ param }}",
+            "deleted": "A Proje Bilgisi is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Proje Bilgisi {{ id }}?"
+            },
+            "detail": {
+                "title": "Proje Bilgisi"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "konusu": "Konusu",
+            "firma": "Firma",
+            "destekVerenKurum": "Destek Veren Kurum"
+        }
+    }
+}

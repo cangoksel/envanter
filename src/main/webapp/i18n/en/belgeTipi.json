@@ -1,0 +1,23 @@
+{
+    "inventoryApp": {
+        "belgeTipi" : {
+            "home": {
+                "title": "Belge Tipis",
+                "createLabel": "Create a new Belge Tipi",
+                "createOrEditLabel": "Create or edit a Belge Tipi"
+            },
+            "created": "A new Belge Tipi is created with identifier {{ param }}",
+            "updated": "A Belge Tipi is updated with identifier {{ param }}",
+            "deleted": "A Belge Tipi is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Belge Tipi {{ id }}?"
+            },
+            "detail": {
+                "title": "Belge Tipi"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "label": "Label"
+        }
+    }
+}

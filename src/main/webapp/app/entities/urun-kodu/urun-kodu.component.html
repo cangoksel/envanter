@@ -1,0 +1,68 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.urunKodu.home.title">Urun Kodus</span>
+        <button class="btn btn-primary float-right jh-create-entity create-urun-kodu" [routerLink]="['/', { outlets: { popup: ['urun-kodu-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.urunKodu.home.createLabel">
+            Create new Urun Kodu
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="urunKodus">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.urunKodu.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.urunKodu.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.urunKodu.urunKoduAdi">Urun Kodu Adi</span></th>
+            <th><span jhiTranslate="inventoryApp.urunKodu.urunKod">Urun Kod</span></th>
+            <th><span jhiTranslate="inventoryApp.urunKodu.urunGrubuKodu">Urun Grubu Kodu</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let urunKodu of urunKodus ;trackBy: trackId">
+                <td><a [routerLink]="['../urun-kodu', urunKodu.id ]">{{urunKodu.id}}</a></td>
+                <td>{{urunKodu.deleted}}</td>
+                <td>{{urunKodu.version}}</td>
+                <td>{{urunKodu.urunKoduAdi}}</td>
+                <td>{{urunKodu.urunKod}}</td>
+                <td>
+                    <div *ngIf="urunKodu.urunGrubuKodu">
+                        <a [routerLink]="['../urun-grubu-kodu', urunKodu.urunGrubuKodu?.id ]" >{{urunKodu.urunGrubuKodu?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../urun-kodu', urunKodu.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'urun-kodu/'+ urunKodu.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'urun-kodu/'+ urunKodu.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

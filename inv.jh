@@ -1,0 +1,347 @@
+entity UrunGrubuKodu {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    urunGrubuKoduAdi String required,
+    urunGrubuKod String required
+}
+entity UrunKodu {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    urunKoduAdi String required,
+    urunKod String  required
+}
+entity UrunAltKodu {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    urunAltKoduAdi String required,
+    urunAltKod String  required
+}
+entity MedikalTurKodu {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    kod String required
+}
+entity MkysKodu {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    kod String required
+}
+entity ActKodu {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    kod String required
+}
+entity GtipKodu {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    kod String required
+}
+entity NaceKodu {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    kod String required
+}
+entity TibbiCihazTehlikeSinifi {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    sinif String required
+}
+entity ProdkomKodu {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    kod String required
+}
+entity SayisalVeri {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    yil LocalDate required,
+    ithalatMiktari Long,
+    ihtiyacMiktari Long,
+    birimFiyatTutar BigDecimal,
+    birimFiyatPB	String,
+    dunyaPazariTutar BigDecimal,
+    dunyaPazariPB	String,
+    turkiyePazariTutar BigDecimal,
+    turkiyePazariPB	String,
+}
+entity BelgeTipi{
+  id UUID  required,
+    deleted Boolean required,
+    version Long required,
+    label String required
+}
+entity Belge {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    belgeAdi String required,
+    belgeBoyutu Long required,
+    olusturmaZamani LocalDate required,
+    silinebilirMi Boolean required,
+    aciklama String,
+    content Blob required
+}
+entity Urun {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    tanimi String,
+    kullanimAlanlari String,
+    cesitleri	String,
+    endikasyonlari String,
+    formlari String 
+}
+relationship OneToOne {
+ UrunKodu {urunGrubuKodu} to UrunGrubuKodu,
+ 	 UrunAltKodu {urunKodu} to UrunKodu,
+	 Urun {urunAltKodu} to UrunAltKodu,
+     Urun {prodkomKodu} to ProdkomKodu,
+     Urun {gtipKodu} to GtipKodu,
+     Urun {mkysKodu} to MkysKodu,
+     Urun {medikalTurKodu} to MedikalTurKodu,
+     Urun {naceKodu} to NaceKodu,
+     Urun {actKodu} to ActKodu,
+     Urun {tibbiCihazTehlikeSinifi} to TibbiCihazTehlikeSinifi,
+     Il {ulke} to Ulke,
+    Il{bolge} to Bolge,
+    Ihracat {yapilanUlke} to Ulke,
+    TesisBilgisi{bulunduguUlke} to Ulke,
+    Adres{il} to Il,
+    Adres{ulke} to Ulke,
+    Kurulus{kurulusTipi} to KurulusTipi,
+    Kurulus{faaliyetAlani} to FaaliyetAlani,
+    Kurulus{urunGrubu} to UrunGrubu,
+    Kurulus{yetkiliKisi} to Kisi,
+    Kurulus{adres} to Adres,
+    Kurulus{bulunduguIl} to Il,
+    CalisanSayiBilgisi{calisanTipi} to CalisanTipi,
+    GenelFirmaBilgileri{il} to Il,
+    GenelFirmaBilgileri{ulke} to Ulke,
+    GenelFirmaBilgileri{kaydiOlusturanKisi} to Kisi,
+    GenelFirmaBilgileri{yetkiliKisi} to Kisi,
+    GenelFirmaBilgileri{faaliyetAlani} to FaaliyetAlani,
+    GenelFirmaBilgileri{urunGrubu} to UrunGrubu,
+    GenelFirmaBilgileri{faaliyetKodu} to FaaliyetKodu,
+     GenelFirmaBilgileri{adres} to Adres,
+  	ProjeBilgisi{destekVerenKurum} to Kurum,
+    Firma{genelBilgiler} to GenelFirmaBilgileri,
+    Firma{isyeriBilgileri} to IsyeriBilgileri,
+    Firma{ortaklikBilgileri} to OrtaklikBilgileri,
+    Firma{finansalBilgileri} to FinansalBilgileri,
+    Belge{belgeTipi} to BelgeTipi
+    
+}
+relationship OneToMany{
+	Urun {sayisalVeri} to SayisalVeri,
+    Urun {belge} to Belge,
+    OrtaklikBilgileri{isbirligiYapilanFirma} to IsbirligiFirma,
+    IsyeriBilgileri{kayitliOlduguKurulus} to Kurulus,
+    IsyeriBilgileri{calisanBilgi} to CalisanSayiBilgisi,
+    IsyeriBilgileri{kaliteBelgesi} to Belge,
+    FinansalBilgileri{yillikCiro} to YillikCiro,
+    FinansalBilgileri{ihracat} to Ihracat,
+    Firma{projeBilgi} to ProjeBilgisi,
+    Firma{tesisBilgisi} to TesisBilgisi,
+    Firma{uretimBilgisi} to UretimBilgisi
+}
+relationship ManyToOne {
+	UretimBilgisi{urun} to Urun
+}
+entity Firma{
+id UUID required,
+    deleted Boolean required,
+    version Long required,
+    firmaYetkinlikCalismasiYepildiMi Boolean required
+    }
+entity ProjeBilgisi{
+id UUID required,
+    deleted Boolean required,
+    version Long required,
+    konusu String required
+    }
+
+entity UretimBilgisi{
+id UUID required,
+    deleted Boolean required,
+    version Long required,
+    firmaAciklamasi String
+    }
+entity GenelFirmaBilgileri{
+id UUID required,
+    deleted Boolean required,
+    version Long required,
+    firmaUnvan String required,
+    kurulusTarihi LocalDate,
+    saglikSektorundeMi Boolean required,
+    sektorBilgisi String,
+    argeBirimiVarMi Boolean,
+    ticaretSicilNo String,
+    vergiNo String,
+    acikAdress String,
+    telefon String,
+    telefon2 String,
+    fax String,
+    email String,
+    webAdresi String
+}
+entity IsyeriBilgileri{
+ id UUID required,
+    deleted Boolean required,
+    version Long required,
+}
+entity YillikCiro{
+id UUID required,
+    deleted Boolean required,
+    version Long required,
+    yil LocalDate required,
+    ciroTutar BigDecimal,
+    ciroPB	String,
+}
+entity FinansalBilgileri{
+id UUID  required,
+    deleted Boolean  required,
+    version Long required,
+    yil LocalDate required,
+   ihracatVarMi Boolean  required
+}
+
+entity Kurum{
+id UUID required,
+    deleted Boolean required,
+    version Long required,
+    yil LocalDate required,
+   adi String  required
+}
+entity OrtaklikBilgileri{
+id UUID  required,
+    deleted Boolean required,
+    version Long required,
+    isbirligiSunmaIstegiVarMi Boolean required,
+    isbirligiTalebiVarMi Boolean required,
+    isbirligiKonsu String 
+}
+
+entity IsbirligiFirma{
+id UUID  required,
+    deleted Boolean required,
+    version Long required,
+    firmaAdi String  required,
+    isbirligiKonsu String 
+}
+entity FaaliyetKodu{
+id UUID required,
+    deleted Boolean required,
+    version Long required,
+    FaaliyetKodu String required
+}
+
+entity CalisanSayiBilgisi{
+id UUID required,
+    deleted Boolean required,
+    version Long required,
+    kisiSayisi Long
+}
+entity Ihracat {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    ithalatTutar BigDecimal,
+    ithalatPB	String,
+    miktar Long,
+    yil LocalDate required
+}
+entity TesisBilgisi {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    uretimAlani String required
+}
+entity Adres {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    acikAdres String required
+}
+entity Kisi {
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    adi String required,
+    soyadi String required
+}
+entity Kurulus{
+	id UUID required,
+    deleted Boolean required,
+    version Long required,
+    adi String required
+    telefon String,
+    telefon2 String,
+    fax String,
+    email String,
+    webSitesi String,
+    uyeSayisi Long
+}
+
+entity UrunGrubu{
+ id UUID required,
+    deleted Boolean required,
+    version Long required,
+    label String required
+}
+entity CalisanTipi{
+ id UUID required,
+    deleted Boolean required,
+    version Long required,
+    label String required
+}
+entity FaaliyetAlani{
+	 id UUID required,
+    deleted Boolean required,
+    version Long required,
+    label String required
+}
+entity KurulusTipi{
+	 id UUID required,
+    deleted Boolean required,
+    version Long required,
+    label String  required 
+}
+
+entity Ulke{
+	 id UUID required,
+    deleted Boolean required,
+    version Long required,
+    label String required,
+      harfKodu String required,
+    kodu String required,
+    englishName String required
+}
+
+entity Il{
+ id UUID required,
+    deleted Boolean required,
+    version Long required,
+    label String required,
+    id Long required,
+    plakaNo String required
+}
+
+entity Bolge{
+ id UUID required,
+    deleted Boolean required,
+    version Long required,
+    label String required,
+}
+paginate Firma, Urun,UretimBilgisi, SayisalVeri with infinite-scroll
+

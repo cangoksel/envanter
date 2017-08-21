@@ -1,0 +1,23 @@
+{
+    "inventoryApp": {
+        "urunGrubu" : {
+            "home": {
+                "title": "Urun Grubus",
+                "createLabel": "Create a new Urun Grubu",
+                "createOrEditLabel": "Create or edit a Urun Grubu"
+            },
+            "created": "A new Urun Grubu is created with identifier {{ param }}",
+            "updated": "A Urun Grubu is updated with identifier {{ param }}",
+            "deleted": "A Urun Grubu is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Urun Grubu {{ id }}?"
+            },
+            "detail": {
+                "title": "Urun Grubu"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "label": "Label"
+        }
+    }
+}

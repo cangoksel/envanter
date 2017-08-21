@@ -1,0 +1,87 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myIlLabel" jhiTranslate="inventoryApp.il.home.createOrEditLabel">Create or edit a Il</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!il.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="il.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.il.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                [(ngModel)]="il.deleted"  />
+            <div [hidden]="!(editForm.controls.deleted?.dirty && editForm.controls.deleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.deleted?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.il.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="il.version" required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.il.label" for="field_label">Label</label>
+            <input type="text" class="form-control" name="label" id="field_label"
+                [(ngModel)]="il.label" required />
+            <div [hidden]="!(editForm.controls.label?.dirty && editForm.controls.label?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.label?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.il.plakaNo" for="field_plakaNo">Plaka No</label>
+            <input type="text" class="form-control" name="plakaNo" id="field_plakaNo"
+                [(ngModel)]="il.plakaNo" required />
+            <div [hidden]="!(editForm.controls.plakaNo?.dirty && editForm.controls.plakaNo?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.plakaNo?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.il.ulke" for="field_ulke">Ulke</label>
+            <select class="form-control" id="field_ulke" name="ulke" [(ngModel)]="il.ulke">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="ulkeOption.id === il.ulke?.id ? il.ulke : ulkeOption" *ngFor="let ulkeOption of ulkes; trackBy: trackUlkeById">{{ulkeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.il.bolge" for="field_bolge">Bolge</label>
+            <select class="form-control" id="field_bolge" name="bolge" [(ngModel)]="il.bolge">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="bolgeOption.id === il.bolge?.id ? il.bolge : bolgeOption" *ngFor="let bolgeOption of bolges; trackBy: trackBolgeById">{{bolgeOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

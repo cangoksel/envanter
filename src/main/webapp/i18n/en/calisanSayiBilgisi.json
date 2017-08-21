@@ -1,0 +1,25 @@
+{
+    "inventoryApp": {
+        "calisanSayiBilgisi" : {
+            "home": {
+                "title": "Calisan Sayi Bilgisis",
+                "createLabel": "Create a new Calisan Sayi Bilgisi",
+                "createOrEditLabel": "Create or edit a Calisan Sayi Bilgisi"
+            },
+            "created": "A new Calisan Sayi Bilgisi is created with identifier {{ param }}",
+            "updated": "A Calisan Sayi Bilgisi is updated with identifier {{ param }}",
+            "deleted": "A Calisan Sayi Bilgisi is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Calisan Sayi Bilgisi {{ id }}?"
+            },
+            "detail": {
+                "title": "Calisan Sayi Bilgisi"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "kisiSayisi": "Kisi Sayisi",
+            "isyeriBilgileri": "Isyeri Bilgileri",
+            "calisanTipi": "Calisan Tipi"
+        }
+    }
+}

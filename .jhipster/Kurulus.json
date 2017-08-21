@@ -1,0 +1,111 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "isyeriBilgileri",
+            "otherEntityName": "isyeriBilgileri",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "kurulusTipi",
+            "otherEntityName": "kurulusTipi",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "kurulus"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "faaliyetAlani",
+            "otherEntityName": "faaliyetAlani",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "kurulus"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "urunGrubu",
+            "otherEntityName": "urunGrubu",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "kurulus"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "yetkiliKisi",
+            "otherEntityName": "kisi",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "kurulus"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "adres",
+            "otherEntityName": "adres",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "kurulus"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "bulunduguIl",
+            "otherEntityName": "il",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "kurulus"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "adi",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "telefon",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "telefon2",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "fax",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "email",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "webSitesi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "uyeSayisi",
+            "fieldType": "Long"
+        }
+    ],
+    "changelogDate": "20170821141826",
+    "entityTableName": "kurulus",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

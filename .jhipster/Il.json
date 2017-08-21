@@ -1,0 +1,56 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ulke",
+            "otherEntityName": "ulke",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "il"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "bolge",
+            "otherEntityName": "bolge",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "il"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "label",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "plakaNo",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170821141832",
+    "entityTableName": "il",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

@@ -1,0 +1,44 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "kayitliOlduguKurulus",
+            "otherEntityName": "kurulus",
+            "otherEntityRelationshipName": "isyeriBilgileri"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "calisanBilgi",
+            "otherEntityName": "calisanSayiBilgisi",
+            "otherEntityRelationshipName": "isyeriBilgileri"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "kaliteBelgesi",
+            "otherEntityName": "belge",
+            "otherEntityRelationshipName": "isyeriBilgileri"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170821141814",
+    "entityTableName": "isyeri_bilgileri",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

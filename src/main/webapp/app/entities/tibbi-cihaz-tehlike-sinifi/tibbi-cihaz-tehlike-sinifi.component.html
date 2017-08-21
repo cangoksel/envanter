@@ -1,0 +1,60 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.tibbiCihazTehlikeSinifi.home.title">Tibbi Cihaz Tehlike Sinifis</span>
+        <button class="btn btn-primary float-right jh-create-entity create-tibbi-cihaz-tehlike-sinifi" [routerLink]="['/', { outlets: { popup: ['tibbi-cihaz-tehlike-sinifi-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.tibbiCihazTehlikeSinifi.home.createLabel">
+            Create new Tibbi Cihaz Tehlike Sinifi
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="tibbiCihazTehlikeSinifis">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.tibbiCihazTehlikeSinifi.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.tibbiCihazTehlikeSinifi.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.tibbiCihazTehlikeSinifi.sinif">Sinif</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let tibbiCihazTehlikeSinifi of tibbiCihazTehlikeSinifis ;trackBy: trackId">
+                <td><a [routerLink]="['../tibbi-cihaz-tehlike-sinifi', tibbiCihazTehlikeSinifi.id ]">{{tibbiCihazTehlikeSinifi.id}}</a></td>
+                <td>{{tibbiCihazTehlikeSinifi.deleted}}</td>
+                <td>{{tibbiCihazTehlikeSinifi.version}}</td>
+                <td>{{tibbiCihazTehlikeSinifi.sinif}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../tibbi-cihaz-tehlike-sinifi', tibbiCihazTehlikeSinifi.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tibbi-cihaz-tehlike-sinifi/'+ tibbiCihazTehlikeSinifi.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'tibbi-cihaz-tehlike-sinifi/'+ tibbiCihazTehlikeSinifi.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

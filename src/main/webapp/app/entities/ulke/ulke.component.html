@@ -1,0 +1,66 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.ulke.home.title">Ulkes</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ulke" [routerLink]="['/', { outlets: { popup: ['ulke-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.ulke.home.createLabel">
+            Create new Ulke
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ulkes">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.ulke.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.ulke.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.ulke.label">Label</span></th>
+            <th><span jhiTranslate="inventoryApp.ulke.harfKodu">Harf Kodu</span></th>
+            <th><span jhiTranslate="inventoryApp.ulke.kodu">Kodu</span></th>
+            <th><span jhiTranslate="inventoryApp.ulke.englishName">English Name</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ulke of ulkes ;trackBy: trackId">
+                <td><a [routerLink]="['../ulke', ulke.id ]">{{ulke.id}}</a></td>
+                <td>{{ulke.deleted}}</td>
+                <td>{{ulke.version}}</td>
+                <td>{{ulke.label}}</td>
+                <td>{{ulke.harfKodu}}</td>
+                <td>{{ulke.kodu}}</td>
+                <td>{{ulke.englishName}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ulke', ulke.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ulke/'+ ulke.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ulke/'+ ulke.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myCalisanSayiBilgisiLabel" jhiTranslate="inventoryApp.calisanSayiBilgisi.home.createOrEditLabel">Create or edit a Calisan Sayi Bilgisi</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!calisanSayiBilgisi.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="calisanSayiBilgisi.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.calisanSayiBilgisi.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                [(ngModel)]="calisanSayiBilgisi.deleted"  />
+            <div [hidden]="!(editForm.controls.deleted?.dirty && editForm.controls.deleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.deleted?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.calisanSayiBilgisi.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="calisanSayiBilgisi.version" required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.calisanSayiBilgisi.kisiSayisi" for="field_kisiSayisi">Kisi Sayisi</label>
+            <input type="number" class="form-control" name="kisiSayisi" id="field_kisiSayisi"
+                [(ngModel)]="calisanSayiBilgisi.kisiSayisi"  />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.calisanSayiBilgisi.isyeriBilgileri" for="field_isyeriBilgileri">Isyeri Bilgileri</label>
+            <select class="form-control" id="field_isyeriBilgileri" name="isyeriBilgileri" [(ngModel)]="calisanSayiBilgisi.isyeriBilgileri" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="isyeriBilgileriOption.id === calisanSayiBilgisi.isyeriBilgileri?.id ? calisanSayiBilgisi.isyeriBilgileri : isyeriBilgileriOption" *ngFor="let isyeriBilgileriOption of isyeribilgileris; trackBy: trackIsyeriBilgileriById">{{isyeriBilgileriOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.calisanSayiBilgisi.calisanTipi" for="field_calisanTipi">Calisan Tipi</label>
+            <select class="form-control" id="field_calisanTipi" name="calisanTipi" [(ngModel)]="calisanSayiBilgisi.calisanTipi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="calisanTipiOption.id === calisanSayiBilgisi.calisanTipi?.id ? calisanSayiBilgisi.calisanTipi : calisanTipiOption" *ngFor="let calisanTipiOption of calisantipis; trackBy: trackCalisanTipiById">{{calisanTipiOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

@@ -1,0 +1,60 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.gtipKodu.home.title">Gtip Kodus</span>
+        <button class="btn btn-primary float-right jh-create-entity create-gtip-kodu" [routerLink]="['/', { outlets: { popup: ['gtip-kodu-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.gtipKodu.home.createLabel">
+            Create new Gtip Kodu
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="gtipKodus">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.gtipKodu.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.gtipKodu.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.gtipKodu.kod">Kod</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let gtipKodu of gtipKodus ;trackBy: trackId">
+                <td><a [routerLink]="['../gtip-kodu', gtipKodu.id ]">{{gtipKodu.id}}</a></td>
+                <td>{{gtipKodu.deleted}}</td>
+                <td>{{gtipKodu.version}}</td>
+                <td>{{gtipKodu.kod}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../gtip-kodu', gtipKodu.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'gtip-kodu/'+ gtipKodu.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'gtip-kodu/'+ gtipKodu.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,26 @@
+{
+    "inventoryApp": {
+        "finansalBilgileri" : {
+            "home": {
+                "title": "Finansal Bilgileris",
+                "createLabel": "Create a new Finansal Bilgileri",
+                "createOrEditLabel": "Create or edit a Finansal Bilgileri"
+            },
+            "created": "A new Finansal Bilgileri is created with identifier {{ param }}",
+            "updated": "A Finansal Bilgileri is updated with identifier {{ param }}",
+            "deleted": "A Finansal Bilgileri is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Finansal Bilgileri {{ id }}?"
+            },
+            "detail": {
+                "title": "Finansal Bilgileri"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "yil": "Yil",
+            "ihracatVarMi": "Ihracat Var Mi",
+            "yillikCiro": "Yillik Ciro",
+            "ihracat": "Ihracat"
+        }
+    }
+}

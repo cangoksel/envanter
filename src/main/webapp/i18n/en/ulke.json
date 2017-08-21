@@ -1,0 +1,26 @@
+{
+    "inventoryApp": {
+        "ulke" : {
+            "home": {
+                "title": "Ulkes",
+                "createLabel": "Create a new Ulke",
+                "createOrEditLabel": "Create or edit a Ulke"
+            },
+            "created": "A new Ulke is created with identifier {{ param }}",
+            "updated": "A Ulke is updated with identifier {{ param }}",
+            "deleted": "A Ulke is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Ulke {{ id }}?"
+            },
+            "detail": {
+                "title": "Ulke"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "label": "Label",
+            "harfKodu": "Harf Kodu",
+            "kodu": "Kodu",
+            "englishName": "English Name"
+        }
+    }
+}

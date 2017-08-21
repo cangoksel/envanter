@@ -1,0 +1,78 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myOrtaklikBilgileriLabel" jhiTranslate="inventoryApp.ortaklikBilgileri.home.createOrEditLabel">Create or edit a Ortaklik Bilgileri</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!ortaklikBilgileri.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="ortaklikBilgileri.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.ortaklikBilgileri.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                [(ngModel)]="ortaklikBilgileri.deleted"  />
+            <div [hidden]="!(editForm.controls.deleted?.dirty && editForm.controls.deleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.deleted?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.ortaklikBilgileri.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="ortaklikBilgileri.version" required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.ortaklikBilgileri.isbirligiSunmaIstegiVarMi" for="field_isbirligiSunmaIstegiVarMi">Isbirligi Sunma Istegi Var Mi</label>
+            <input type="checkbox" class="form-control" name="isbirligiSunmaIstegiVarMi" id="field_isbirligiSunmaIstegiVarMi"
+                [(ngModel)]="ortaklikBilgileri.isbirligiSunmaIstegiVarMi"  />
+            <div [hidden]="!(editForm.controls.isbirligiSunmaIstegiVarMi?.dirty && editForm.controls.isbirligiSunmaIstegiVarMi?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.isbirligiSunmaIstegiVarMi?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.ortaklikBilgileri.isbirligiTalebiVarMi" for="field_isbirligiTalebiVarMi">Isbirligi Talebi Var Mi</label>
+            <input type="checkbox" class="form-control" name="isbirligiTalebiVarMi" id="field_isbirligiTalebiVarMi"
+                [(ngModel)]="ortaklikBilgileri.isbirligiTalebiVarMi"  />
+            <div [hidden]="!(editForm.controls.isbirligiTalebiVarMi?.dirty && editForm.controls.isbirligiTalebiVarMi?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.isbirligiTalebiVarMi?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.ortaklikBilgileri.isbirligiKonsu" for="field_isbirligiKonsu">Isbirligi Konsu</label>
+            <input type="text" class="form-control" name="isbirligiKonsu" id="field_isbirligiKonsu"
+                [(ngModel)]="ortaklikBilgileri.isbirligiKonsu"  />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

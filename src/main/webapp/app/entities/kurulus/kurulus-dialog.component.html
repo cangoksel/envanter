@@ -1,0 +1,141 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myKurulusLabel" jhiTranslate="inventoryApp.kurulus.home.createOrEditLabel">Create or edit a Kurulus</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!kurulus.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="kurulus.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.kurulus.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                [(ngModel)]="kurulus.deleted"  />
+            <div [hidden]="!(editForm.controls.deleted?.dirty && editForm.controls.deleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.deleted?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.kurulus.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="kurulus.version" required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.kurulus.adi" for="field_adi">Adi</label>
+            <input type="text" class="form-control" name="adi" id="field_adi"
+                [(ngModel)]="kurulus.adi" required />
+            <div [hidden]="!(editForm.controls.adi?.dirty && editForm.controls.adi?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.adi?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.kurulus.telefon" for="field_telefon">Telefon</label>
+            <input type="text" class="form-control" name="telefon" id="field_telefon"
+                [(ngModel)]="kurulus.telefon"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.kurulus.telefon2" for="field_telefon2">Telefon 2</label>
+            <input type="text" class="form-control" name="telefon2" id="field_telefon2"
+                [(ngModel)]="kurulus.telefon2"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.kurulus.fax" for="field_fax">Fax</label>
+            <input type="text" class="form-control" name="fax" id="field_fax"
+                [(ngModel)]="kurulus.fax"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.kurulus.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="kurulus.email"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.kurulus.webSitesi" for="field_webSitesi">Web Sitesi</label>
+            <input type="text" class="form-control" name="webSitesi" id="field_webSitesi"
+                [(ngModel)]="kurulus.webSitesi"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.kurulus.uyeSayisi" for="field_uyeSayisi">Uye Sayisi</label>
+            <input type="number" class="form-control" name="uyeSayisi" id="field_uyeSayisi"
+                [(ngModel)]="kurulus.uyeSayisi"  />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.kurulus.isyeriBilgileri" for="field_isyeriBilgileri">Isyeri Bilgileri</label>
+            <select class="form-control" id="field_isyeriBilgileri" name="isyeriBilgileri" [(ngModel)]="kurulus.isyeriBilgileri" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="isyeriBilgileriOption.id === kurulus.isyeriBilgileri?.id ? kurulus.isyeriBilgileri : isyeriBilgileriOption" *ngFor="let isyeriBilgileriOption of isyeribilgileris; trackBy: trackIsyeriBilgileriById">{{isyeriBilgileriOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.kurulus.kurulusTipi" for="field_kurulusTipi">Kurulus Tipi</label>
+            <select class="form-control" id="field_kurulusTipi" name="kurulusTipi" [(ngModel)]="kurulus.kurulusTipi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="kurulusTipiOption.id === kurulus.kurulusTipi?.id ? kurulus.kurulusTipi : kurulusTipiOption" *ngFor="let kurulusTipiOption of kurulustipis; trackBy: trackKurulusTipiById">{{kurulusTipiOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.kurulus.faaliyetAlani" for="field_faaliyetAlani">Faaliyet Alani</label>
+            <select class="form-control" id="field_faaliyetAlani" name="faaliyetAlani" [(ngModel)]="kurulus.faaliyetAlani">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="faaliyetAlaniOption.id === kurulus.faaliyetAlani?.id ? kurulus.faaliyetAlani : faaliyetAlaniOption" *ngFor="let faaliyetAlaniOption of faaliyetalanis; trackBy: trackFaaliyetAlaniById">{{faaliyetAlaniOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.kurulus.urunGrubu" for="field_urunGrubu">Urun Grubu</label>
+            <select class="form-control" id="field_urunGrubu" name="urunGrubu" [(ngModel)]="kurulus.urunGrubu">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="urunGrubuOption.id === kurulus.urunGrubu?.id ? kurulus.urunGrubu : urunGrubuOption" *ngFor="let urunGrubuOption of urungrubus; trackBy: trackUrunGrubuById">{{urunGrubuOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.kurulus.yetkiliKisi" for="field_yetkiliKisi">Yetkili Kisi</label>
+            <select class="form-control" id="field_yetkiliKisi" name="yetkiliKisi" [(ngModel)]="kurulus.yetkiliKisi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="kisiOption.id === kurulus.yetkiliKisi?.id ? kurulus.yetkiliKisi : kisiOption" *ngFor="let kisiOption of yetkilikisis; trackBy: trackKisiById">{{kisiOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.kurulus.adres" for="field_adres">Adres</label>
+            <select class="form-control" id="field_adres" name="adres" [(ngModel)]="kurulus.adres">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="adresOption.id === kurulus.adres?.id ? kurulus.adres : adresOption" *ngFor="let adresOption of adres; trackBy: trackAdresById">{{adresOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.kurulus.bulunduguIl" for="field_bulunduguIl">Bulundugu Il</label>
+            <select class="form-control" id="field_bulunduguIl" name="bulunduguIl" [(ngModel)]="kurulus.bulunduguIl">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="ilOption.id === kurulus.bulunduguIl?.id ? kurulus.bulunduguIl : ilOption" *ngFor="let ilOption of bulunduguils; trackBy: trackIlById">{{ilOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

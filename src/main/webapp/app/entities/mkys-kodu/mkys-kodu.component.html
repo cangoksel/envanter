@@ -1,0 +1,60 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.mkysKodu.home.title">Mkys Kodus</span>
+        <button class="btn btn-primary float-right jh-create-entity create-mkys-kodu" [routerLink]="['/', { outlets: { popup: ['mkys-kodu-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.mkysKodu.home.createLabel">
+            Create new Mkys Kodu
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="mkysKodus">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.mkysKodu.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.mkysKodu.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.mkysKodu.kod">Kod</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let mkysKodu of mkysKodus ;trackBy: trackId">
+                <td><a [routerLink]="['../mkys-kodu', mkysKodu.id ]">{{mkysKodu.id}}</a></td>
+                <td>{{mkysKodu.deleted}}</td>
+                <td>{{mkysKodu.version}}</td>
+                <td>{{mkysKodu.kod}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../mkys-kodu', mkysKodu.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'mkys-kodu/'+ mkysKodu.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'mkys-kodu/'+ mkysKodu.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

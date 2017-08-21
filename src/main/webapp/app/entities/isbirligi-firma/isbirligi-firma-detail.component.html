@@ -1,0 +1,43 @@
+
+<div *ngIf="isbirligiFirma">
+    <h2><span jhiTranslate="inventoryApp.isbirligiFirma.detail.title">Isbirligi Firma</span> {{isbirligiFirma.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.isbirligiFirma.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{isbirligiFirma.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.isbirligiFirma.version">Version</span></dt>
+        <dd>
+            <span>{{isbirligiFirma.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.isbirligiFirma.firmaAdi">Firma Adi</span></dt>
+        <dd>
+            <span>{{isbirligiFirma.firmaAdi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.isbirligiFirma.isbirligiKonsu">Isbirligi Konsu</span></dt>
+        <dd>
+            <span>{{isbirligiFirma.isbirligiKonsu}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.isbirligiFirma.ortaklikBilgileri">Ortaklik Bilgileri</span></dt>
+        <dd>
+            <div *ngIf="isbirligiFirma.ortaklikBilgileri">
+                <a [routerLink]="['/ortaklik-bilgileri', isbirligiFirma.ortaklikBilgileri?.id]">{{isbirligiFirma.ortaklikBilgileri?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'isbirligi-firma/'+ isbirligiFirma.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

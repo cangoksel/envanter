@@ -1,0 +1,52 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "yillikCiro",
+            "otherEntityName": "yillikCiro",
+            "otherEntityRelationshipName": "finansalBilgileri"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ihracat",
+            "otherEntityName": "ihracat",
+            "otherEntityRelationshipName": "finansalBilgileri"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "yil",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ihracatVarMi",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20170821141816",
+    "entityTableName": "finansal_bilgileri",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

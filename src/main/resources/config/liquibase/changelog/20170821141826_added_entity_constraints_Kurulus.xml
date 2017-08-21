@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Kurulus.
+    -->
+    <changeSet id="20170821141826-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="isyeri_bilgileri_id"
+                                 baseTableName="kurulus"
+                                 constraintName="fk_kurulus_isyeri_bilgileri_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="isyeri_bilgileri"/>
+
+        <addForeignKeyConstraint baseColumnNames="kurulus_tipi_id"
+                                 baseTableName="kurulus"
+                                 constraintName="fk_kurulus_kurulus_tipi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="kurulus_tipi"/>
+
+        <addForeignKeyConstraint baseColumnNames="faaliyet_alani_id"
+                                 baseTableName="kurulus"
+                                 constraintName="fk_kurulus_faaliyet_alani_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="faaliyet_alani"/>
+
+        <addForeignKeyConstraint baseColumnNames="urun_grubu_id"
+                                 baseTableName="kurulus"
+                                 constraintName="fk_kurulus_urun_grubu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="urun_grubu"/>
+
+        <addForeignKeyConstraint baseColumnNames="yetkili_kisi_id"
+                                 baseTableName="kurulus"
+                                 constraintName="fk_kurulus_yetkili_kisi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="kisi"/>
+
+        <addForeignKeyConstraint baseColumnNames="adres_id"
+                                 baseTableName="kurulus"
+                                 constraintName="fk_kurulus_adres_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="adres"/>
+
+        <addForeignKeyConstraint baseColumnNames="bulundugu_il_id"
+                                 baseTableName="kurulus"
+                                 constraintName="fk_kurulus_bulundugu_il_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="il"/>
+
+    </changeSet>
+</databaseChangeLog>

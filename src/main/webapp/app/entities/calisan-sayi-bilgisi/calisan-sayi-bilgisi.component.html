@@ -1,0 +1,72 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.calisanSayiBilgisi.home.title">Calisan Sayi Bilgisis</span>
+        <button class="btn btn-primary float-right jh-create-entity create-calisan-sayi-bilgisi" [routerLink]="['/', { outlets: { popup: ['calisan-sayi-bilgisi-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.calisanSayiBilgisi.home.createLabel">
+            Create new Calisan Sayi Bilgisi
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="calisanSayiBilgisis">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.calisanSayiBilgisi.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.calisanSayiBilgisi.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.calisanSayiBilgisi.kisiSayisi">Kisi Sayisi</span></th>
+            <th><span jhiTranslate="inventoryApp.calisanSayiBilgisi.isyeriBilgileri">Isyeri Bilgileri</span></th>
+            <th><span jhiTranslate="inventoryApp.calisanSayiBilgisi.calisanTipi">Calisan Tipi</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let calisanSayiBilgisi of calisanSayiBilgisis ;trackBy: trackId">
+                <td><a [routerLink]="['../calisan-sayi-bilgisi', calisanSayiBilgisi.id ]">{{calisanSayiBilgisi.id}}</a></td>
+                <td>{{calisanSayiBilgisi.deleted}}</td>
+                <td>{{calisanSayiBilgisi.version}}</td>
+                <td>{{calisanSayiBilgisi.kisiSayisi}}</td>
+                <td>
+                    <div *ngIf="calisanSayiBilgisi.isyeriBilgileri">
+                        <a [routerLink]="['../isyeri-bilgileri', calisanSayiBilgisi.isyeriBilgileri?.id ]" >{{calisanSayiBilgisi.isyeriBilgileri?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="calisanSayiBilgisi.calisanTipi">
+                        <a [routerLink]="['../calisan-tipi', calisanSayiBilgisi.calisanTipi?.id ]" >{{calisanSayiBilgisi.calisanTipi?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../calisan-sayi-bilgisi', calisanSayiBilgisi.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'calisan-sayi-bilgisi/'+ calisanSayiBilgisi.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'calisan-sayi-bilgisi/'+ calisanSayiBilgisi.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

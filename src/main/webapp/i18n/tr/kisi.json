@@ -1,0 +1,24 @@
+{
+    "inventoryApp": {
+        "kisi" : {
+            "home": {
+                "title": "Kisis",
+                "createLabel": "Create a new Kisi",
+                "createOrEditLabel": "Create or edit a Kisi"
+            },
+            "created": "A new Kisi is created with identifier {{ param }}",
+            "updated": "A Kisi is updated with identifier {{ param }}",
+            "deleted": "A Kisi is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Kisi {{ id }}?"
+            },
+            "detail": {
+                "title": "Kisi"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "adi": "Adi",
+            "soyadi": "Soyadi"
+        }
+    }
+}

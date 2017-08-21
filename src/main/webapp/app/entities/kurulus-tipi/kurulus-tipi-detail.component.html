@@ -1,0 +1,33 @@
+
+<div *ngIf="kurulusTipi">
+    <h2><span jhiTranslate="inventoryApp.kurulusTipi.detail.title">Kurulus Tipi</span> {{kurulusTipi.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.kurulusTipi.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{kurulusTipi.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulusTipi.version">Version</span></dt>
+        <dd>
+            <span>{{kurulusTipi.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulusTipi.label">Label</span></dt>
+        <dd>
+            <span>{{kurulusTipi.label}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'kurulus-tipi/'+ kurulusTipi.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

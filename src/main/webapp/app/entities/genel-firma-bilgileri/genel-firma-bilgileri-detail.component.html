@@ -1,0 +1,129 @@
+
+<div *ngIf="genelFirmaBilgileri">
+    <h2><span jhiTranslate="inventoryApp.genelFirmaBilgileri.detail.title">Genel Firma Bilgileri</span> {{genelFirmaBilgileri.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.version">Version</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.firmaUnvan">Firma Unvan</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.firmaUnvan}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.kurulusTarihi">Kurulus Tarihi</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.kurulusTarihi | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.saglikSektorundeMi">Saglik Sektorunde Mi</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.saglikSektorundeMi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.sektorBilgisi">Sektor Bilgisi</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.sektorBilgisi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.argeBirimiVarMi">Arge Birimi Var Mi</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.argeBirimiVarMi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.ticaretSicilNo">Ticaret Sicil No</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.ticaretSicilNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.vergiNo">Vergi No</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.vergiNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.acikAdress">Acik Adress</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.acikAdress}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.telefon">Telefon</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.telefon}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.telefon2">Telefon 2</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.telefon2}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.fax">Fax</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.fax}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.email">Email</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.webAdresi">Web Adresi</span></dt>
+        <dd>
+            <span>{{genelFirmaBilgileri.webAdresi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.il">Il</span></dt>
+        <dd>
+            <div *ngIf="genelFirmaBilgileri.il">
+                <a [routerLink]="['/il', genelFirmaBilgileri.il?.id]">{{genelFirmaBilgileri.il?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.ulke">Ulke</span></dt>
+        <dd>
+            <div *ngIf="genelFirmaBilgileri.ulke">
+                <a [routerLink]="['/ulke', genelFirmaBilgileri.ulke?.id]">{{genelFirmaBilgileri.ulke?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.kaydiOlusturanKisi">Kaydi Olusturan Kisi</span></dt>
+        <dd>
+            <div *ngIf="genelFirmaBilgileri.kaydiOlusturanKisi">
+                <a [routerLink]="['/kisi', genelFirmaBilgileri.kaydiOlusturanKisi?.id]">{{genelFirmaBilgileri.kaydiOlusturanKisi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.yetkiliKisi">Yetkili Kisi</span></dt>
+        <dd>
+            <div *ngIf="genelFirmaBilgileri.yetkiliKisi">
+                <a [routerLink]="['/kisi', genelFirmaBilgileri.yetkiliKisi?.id]">{{genelFirmaBilgileri.yetkiliKisi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.faaliyetAlani">Faaliyet Alani</span></dt>
+        <dd>
+            <div *ngIf="genelFirmaBilgileri.faaliyetAlani">
+                <a [routerLink]="['/faaliyet-alani', genelFirmaBilgileri.faaliyetAlani?.id]">{{genelFirmaBilgileri.faaliyetAlani?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.urunGrubu">Urun Grubu</span></dt>
+        <dd>
+            <div *ngIf="genelFirmaBilgileri.urunGrubu">
+                <a [routerLink]="['/urun-grubu', genelFirmaBilgileri.urunGrubu?.id]">{{genelFirmaBilgileri.urunGrubu?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.faaliyetKodu">Faaliyet Kodu</span></dt>
+        <dd>
+            <div *ngIf="genelFirmaBilgileri.faaliyetKodu">
+                <a [routerLink]="['/faaliyet-kodu', genelFirmaBilgileri.faaliyetKodu?.id]">{{genelFirmaBilgileri.faaliyetKodu?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.genelFirmaBilgileri.adres">Adres</span></dt>
+        <dd>
+            <div *ngIf="genelFirmaBilgileri.adres">
+                <a [routerLink]="['/adres', genelFirmaBilgileri.adres?.id]">{{genelFirmaBilgileri.adres?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'genel-firma-bilgileri/'+ genelFirmaBilgileri.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

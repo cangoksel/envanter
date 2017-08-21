@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity YillikCiro.
+    -->
+    <changeSet id="20170821141815-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="finansal_bilgileri_id"
+                                 baseTableName="yillik_ciro"
+                                 constraintName="fk_yillik_ciro_finansal_bilgileri_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="finansal_bilgileri"/>
+
+    </changeSet>
+</databaseChangeLog>

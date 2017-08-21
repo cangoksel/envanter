@@ -1,0 +1,122 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "urunAltKodu",
+            "otherEntityName": "urunAltKodu",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "urun"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "prodkomKodu",
+            "otherEntityName": "prodkomKodu",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "urun"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "gtipKodu",
+            "otherEntityName": "gtipKodu",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "urun"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "mkysKodu",
+            "otherEntityName": "mkysKodu",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "urun"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "medikalTurKodu",
+            "otherEntityName": "medikalTurKodu",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "urun"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "naceKodu",
+            "otherEntityName": "naceKodu",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "urun"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "actKodu",
+            "otherEntityName": "actKodu",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "urun"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "tibbiCihazTehlikeSinifi",
+            "otherEntityName": "tibbiCihazTehlikeSinifi",
+            "otherEntityField": "id",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "urun"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sayisalVeri",
+            "otherEntityName": "sayisalVeri",
+            "otherEntityRelationshipName": "urun"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "belge",
+            "otherEntityName": "belge",
+            "otherEntityRelationshipName": "urun"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "tanimi",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "kullanimAlanlari",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "cesitleri",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "endikasyonlari",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "formlari",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170821141809",
+    "entityTableName": "urun",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no"
+}

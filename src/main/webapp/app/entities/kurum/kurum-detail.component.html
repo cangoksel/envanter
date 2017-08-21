@@ -1,0 +1,37 @@
+
+<div *ngIf="kurum">
+    <h2><span jhiTranslate="inventoryApp.kurum.detail.title">Kurum</span> {{kurum.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.kurum.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{kurum.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurum.version">Version</span></dt>
+        <dd>
+            <span>{{kurum.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurum.yil">Yil</span></dt>
+        <dd>
+            <span>{{kurum.yil | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurum.adi">Adi</span></dt>
+        <dd>
+            <span>{{kurum.adi}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'kurum/'+ kurum.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

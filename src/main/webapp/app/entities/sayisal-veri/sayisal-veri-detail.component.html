@@ -1,0 +1,71 @@
+
+<div *ngIf="sayisalVeri">
+    <h2><span jhiTranslate="inventoryApp.sayisalVeri.detail.title">Sayisal Veri</span> {{sayisalVeri.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.sayisalVeri.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{sayisalVeri.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.sayisalVeri.version">Version</span></dt>
+        <dd>
+            <span>{{sayisalVeri.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.sayisalVeri.yil">Yil</span></dt>
+        <dd>
+            <span>{{sayisalVeri.yil | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.sayisalVeri.ithalatMiktari">Ithalat Miktari</span></dt>
+        <dd>
+            <span>{{sayisalVeri.ithalatMiktari}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.sayisalVeri.ihtiyacMiktari">Ihtiyac Miktari</span></dt>
+        <dd>
+            <span>{{sayisalVeri.ihtiyacMiktari}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.sayisalVeri.birimFiyatTutar">Birim Fiyat Tutar</span></dt>
+        <dd>
+            <span>{{sayisalVeri.birimFiyatTutar}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.sayisalVeri.birimFiyatPB">Birim Fiyat PB</span></dt>
+        <dd>
+            <span>{{sayisalVeri.birimFiyatPB}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.sayisalVeri.dunyaPazariTutar">Dunya Pazari Tutar</span></dt>
+        <dd>
+            <span>{{sayisalVeri.dunyaPazariTutar}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.sayisalVeri.dunyaPazariPB">Dunya Pazari PB</span></dt>
+        <dd>
+            <span>{{sayisalVeri.dunyaPazariPB}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.sayisalVeri.turkiyePazariTutar">Turkiye Pazari Tutar</span></dt>
+        <dd>
+            <span>{{sayisalVeri.turkiyePazariTutar}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.sayisalVeri.turkiyePazariPB">Turkiye Pazari PB</span></dt>
+        <dd>
+            <span>{{sayisalVeri.turkiyePazariPB}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.sayisalVeri.urun">Urun</span></dt>
+        <dd>
+            <div *ngIf="sayisalVeri.urun">
+                <a [routerLink]="['/urun', sayisalVeri.urun?.id]">{{sayisalVeri.urun?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'sayisal-veri/'+ sayisalVeri.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

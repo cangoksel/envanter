@@ -1,0 +1,45 @@
+
+<div *ngIf="projeBilgisi">
+    <h2><span jhiTranslate="inventoryApp.projeBilgisi.detail.title">Proje Bilgisi</span> {{projeBilgisi.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.projeBilgisi.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{projeBilgisi.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.projeBilgisi.version">Version</span></dt>
+        <dd>
+            <span>{{projeBilgisi.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.projeBilgisi.konusu">Konusu</span></dt>
+        <dd>
+            <span>{{projeBilgisi.konusu}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.projeBilgisi.firma">Firma</span></dt>
+        <dd>
+            <div *ngIf="projeBilgisi.firma">
+                <a [routerLink]="['/firma', projeBilgisi.firma?.id]">{{projeBilgisi.firma?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.projeBilgisi.destekVerenKurum">Destek Veren Kurum</span></dt>
+        <dd>
+            <div *ngIf="projeBilgisi.destekVerenKurum">
+                <a [routerLink]="['/kurum', projeBilgisi.destekVerenKurum?.id]">{{projeBilgisi.destekVerenKurum?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'proje-bilgisi/'+ projeBilgisi.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,57 @@
+
+<div *ngIf="ihracat">
+    <h2><span jhiTranslate="inventoryApp.ihracat.detail.title">Ihracat</span> {{ihracat.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.ihracat.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{ihracat.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.ihracat.version">Version</span></dt>
+        <dd>
+            <span>{{ihracat.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.ihracat.ithalatTutar">Ithalat Tutar</span></dt>
+        <dd>
+            <span>{{ihracat.ithalatTutar}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.ihracat.ithalatPB">Ithalat PB</span></dt>
+        <dd>
+            <span>{{ihracat.ithalatPB}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.ihracat.miktar">Miktar</span></dt>
+        <dd>
+            <span>{{ihracat.miktar}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.ihracat.yil">Yil</span></dt>
+        <dd>
+            <span>{{ihracat.yil | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.ihracat.finansalBilgileri">Finansal Bilgileri</span></dt>
+        <dd>
+            <div *ngIf="ihracat.finansalBilgileri">
+                <a [routerLink]="['/finansal-bilgileri', ihracat.finansalBilgileri?.id]">{{ihracat.finansalBilgileri?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.ihracat.yapilanUlke">Yapilan Ulke</span></dt>
+        <dd>
+            <div *ngIf="ihracat.yapilanUlke">
+                <a [routerLink]="['/ulke', ihracat.yapilanUlke?.id]">{{ihracat.yapilanUlke?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ihracat/'+ ihracat.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Urun.
+    -->
+    <changeSet id="20170821141809-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="urun_alt_kodu_id"
+                                 baseTableName="urun"
+                                 constraintName="fk_urun_urun_alt_kodu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="urun_alt_kodu"/>
+
+        <addForeignKeyConstraint baseColumnNames="prodkom_kodu_id"
+                                 baseTableName="urun"
+                                 constraintName="fk_urun_prodkom_kodu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prodkom_kodu"/>
+
+        <addForeignKeyConstraint baseColumnNames="gtip_kodu_id"
+                                 baseTableName="urun"
+                                 constraintName="fk_urun_gtip_kodu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="gtip_kodu"/>
+
+        <addForeignKeyConstraint baseColumnNames="mkys_kodu_id"
+                                 baseTableName="urun"
+                                 constraintName="fk_urun_mkys_kodu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mkys_kodu"/>
+
+        <addForeignKeyConstraint baseColumnNames="medikal_tur_kodu_id"
+                                 baseTableName="urun"
+                                 constraintName="fk_urun_medikal_tur_kodu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medikal_tur_kodu"/>
+
+        <addForeignKeyConstraint baseColumnNames="nace_kodu_id"
+                                 baseTableName="urun"
+                                 constraintName="fk_urun_nace_kodu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="nace_kodu"/>
+
+        <addForeignKeyConstraint baseColumnNames="act_kodu_id"
+                                 baseTableName="urun"
+                                 constraintName="fk_urun_act_kodu_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="act_kodu"/>
+
+        <addForeignKeyConstraint baseColumnNames="tibbi_cihaz_tehlike_sinifi_id"
+                                 baseTableName="urun"
+                                 constraintName="fk_urun_tibbi_cihaz_tehlike_sinifi_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tibbi_cihaz_tehlike_sinifi"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,23 @@
+{
+    "inventoryApp": {
+        "gtipKodu" : {
+            "home": {
+                "title": "Gtip Kodus",
+                "createLabel": "Create a new Gtip Kodu",
+                "createOrEditLabel": "Create or edit a Gtip Kodu"
+            },
+            "created": "A new Gtip Kodu is created with identifier {{ param }}",
+            "updated": "A Gtip Kodu is updated with identifier {{ param }}",
+            "deleted": "A Gtip Kodu is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Gtip Kodu {{ id }}?"
+            },
+            "detail": {
+                "title": "Gtip Kodu"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "kod": "Kod"
+        }
+    }
+}

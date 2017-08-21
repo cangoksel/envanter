@@ -1,0 +1,41 @@
+
+<div *ngIf="ortaklikBilgileri">
+    <h2><span jhiTranslate="inventoryApp.ortaklikBilgileri.detail.title">Ortaklik Bilgileri</span> {{ortaklikBilgileri.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.ortaklikBilgileri.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{ortaklikBilgileri.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.ortaklikBilgileri.version">Version</span></dt>
+        <dd>
+            <span>{{ortaklikBilgileri.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.ortaklikBilgileri.isbirligiSunmaIstegiVarMi">Isbirligi Sunma Istegi Var Mi</span></dt>
+        <dd>
+            <span>{{ortaklikBilgileri.isbirligiSunmaIstegiVarMi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.ortaklikBilgileri.isbirligiTalebiVarMi">Isbirligi Talebi Var Mi</span></dt>
+        <dd>
+            <span>{{ortaklikBilgileri.isbirligiTalebiVarMi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.ortaklikBilgileri.isbirligiKonsu">Isbirligi Konsu</span></dt>
+        <dd>
+            <span>{{ortaklikBilgileri.isbirligiKonsu}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ortaklik-bilgileri/'+ ortaklikBilgileri.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

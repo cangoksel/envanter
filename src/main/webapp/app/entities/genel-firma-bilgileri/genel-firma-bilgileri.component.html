@@ -1,0 +1,132 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.genelFirmaBilgileri.home.title">Genel Firma Bilgileris</span>
+        <button class="btn btn-primary float-right jh-create-entity create-genel-firma-bilgileri" [routerLink]="['/', { outlets: { popup: ['genel-firma-bilgileri-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.genelFirmaBilgileri.home.createLabel">
+            Create new Genel Firma Bilgileri
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="genelFirmaBilgileris">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.firmaUnvan">Firma Unvan</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.kurulusTarihi">Kurulus Tarihi</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.saglikSektorundeMi">Saglik Sektorunde Mi</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.sektorBilgisi">Sektor Bilgisi</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.argeBirimiVarMi">Arge Birimi Var Mi</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.ticaretSicilNo">Ticaret Sicil No</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.vergiNo">Vergi No</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.acikAdress">Acik Adress</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.telefon">Telefon</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.telefon2">Telefon 2</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.fax">Fax</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.email">Email</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.webAdresi">Web Adresi</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.il">Il</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.ulke">Ulke</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.kaydiOlusturanKisi">Kaydi Olusturan Kisi</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.yetkiliKisi">Yetkili Kisi</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.faaliyetAlani">Faaliyet Alani</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.urunGrubu">Urun Grubu</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.faaliyetKodu">Faaliyet Kodu</span></th>
+            <th><span jhiTranslate="inventoryApp.genelFirmaBilgileri.adres">Adres</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let genelFirmaBilgileri of genelFirmaBilgileris ;trackBy: trackId">
+                <td><a [routerLink]="['../genel-firma-bilgileri', genelFirmaBilgileri.id ]">{{genelFirmaBilgileri.id}}</a></td>
+                <td>{{genelFirmaBilgileri.deleted}}</td>
+                <td>{{genelFirmaBilgileri.version}}</td>
+                <td>{{genelFirmaBilgileri.firmaUnvan}}</td>
+                <td>{{genelFirmaBilgileri.kurulusTarihi | date:'mediumDate'}}</td>
+                <td>{{genelFirmaBilgileri.saglikSektorundeMi}}</td>
+                <td>{{genelFirmaBilgileri.sektorBilgisi}}</td>
+                <td>{{genelFirmaBilgileri.argeBirimiVarMi}}</td>
+                <td>{{genelFirmaBilgileri.ticaretSicilNo}}</td>
+                <td>{{genelFirmaBilgileri.vergiNo}}</td>
+                <td>{{genelFirmaBilgileri.acikAdress}}</td>
+                <td>{{genelFirmaBilgileri.telefon}}</td>
+                <td>{{genelFirmaBilgileri.telefon2}}</td>
+                <td>{{genelFirmaBilgileri.fax}}</td>
+                <td>{{genelFirmaBilgileri.email}}</td>
+                <td>{{genelFirmaBilgileri.webAdresi}}</td>
+                <td>
+                    <div *ngIf="genelFirmaBilgileri.il">
+                        <a [routerLink]="['../il', genelFirmaBilgileri.il?.id ]" >{{genelFirmaBilgileri.il?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="genelFirmaBilgileri.ulke">
+                        <a [routerLink]="['../ulke', genelFirmaBilgileri.ulke?.id ]" >{{genelFirmaBilgileri.ulke?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="genelFirmaBilgileri.kaydiOlusturanKisi">
+                        <a [routerLink]="['../kisi', genelFirmaBilgileri.kaydiOlusturanKisi?.id ]" >{{genelFirmaBilgileri.kaydiOlusturanKisi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="genelFirmaBilgileri.yetkiliKisi">
+                        <a [routerLink]="['../kisi', genelFirmaBilgileri.yetkiliKisi?.id ]" >{{genelFirmaBilgileri.yetkiliKisi?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="genelFirmaBilgileri.faaliyetAlani">
+                        <a [routerLink]="['../faaliyet-alani', genelFirmaBilgileri.faaliyetAlani?.id ]" >{{genelFirmaBilgileri.faaliyetAlani?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="genelFirmaBilgileri.urunGrubu">
+                        <a [routerLink]="['../urun-grubu', genelFirmaBilgileri.urunGrubu?.id ]" >{{genelFirmaBilgileri.urunGrubu?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="genelFirmaBilgileri.faaliyetKodu">
+                        <a [routerLink]="['../faaliyet-kodu', genelFirmaBilgileri.faaliyetKodu?.id ]" >{{genelFirmaBilgileri.faaliyetKodu?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="genelFirmaBilgileri.adres">
+                        <a [routerLink]="['../adres', genelFirmaBilgileri.adres?.id ]" >{{genelFirmaBilgileri.adres?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../genel-firma-bilgileri', genelFirmaBilgileri.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'genel-firma-bilgileri/'+ genelFirmaBilgileri.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'genel-firma-bilgileri/'+ genelFirmaBilgileri.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

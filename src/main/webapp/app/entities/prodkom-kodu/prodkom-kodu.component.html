@@ -1,0 +1,60 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.prodkomKodu.home.title">Prodkom Kodus</span>
+        <button class="btn btn-primary float-right jh-create-entity create-prodkom-kodu" [routerLink]="['/', { outlets: { popup: ['prodkom-kodu-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.prodkomKodu.home.createLabel">
+            Create new Prodkom Kodu
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="prodkomKodus">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.prodkomKodu.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.prodkomKodu.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.prodkomKodu.kod">Kod</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let prodkomKodu of prodkomKodus ;trackBy: trackId">
+                <td><a [routerLink]="['../prodkom-kodu', prodkomKodu.id ]">{{prodkomKodu.id}}</a></td>
+                <td>{{prodkomKodu.deleted}}</td>
+                <td>{{prodkomKodu.version}}</td>
+                <td>{{prodkomKodu.kod}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../prodkom-kodu', prodkomKodu.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'prodkom-kodu/'+ prodkomKodu.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'prodkom-kodu/'+ prodkomKodu.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+{
+    "inventoryApp": {
+        "urunAltKodu" : {
+            "home": {
+                "title": "Urun Alt Kodus",
+                "createLabel": "Create a new Urun Alt Kodu",
+                "createOrEditLabel": "Create or edit a Urun Alt Kodu"
+            },
+            "created": "A new Urun Alt Kodu is created with identifier {{ param }}",
+            "updated": "A Urun Alt Kodu is updated with identifier {{ param }}",
+            "deleted": "A Urun Alt Kodu is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Urun Alt Kodu {{ id }}?"
+            },
+            "detail": {
+                "title": "Urun Alt Kodu"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "urunAltKoduAdi": "Urun Alt Kodu Adi",
+            "urunAltKod": "Urun Alt Kod",
+            "urunKodu": "Urun Kodu"
+        }
+    }
+}

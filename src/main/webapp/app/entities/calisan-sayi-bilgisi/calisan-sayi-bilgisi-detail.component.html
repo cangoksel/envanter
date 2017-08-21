@@ -1,0 +1,45 @@
+
+<div *ngIf="calisanSayiBilgisi">
+    <h2><span jhiTranslate="inventoryApp.calisanSayiBilgisi.detail.title">Calisan Sayi Bilgisi</span> {{calisanSayiBilgisi.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.calisanSayiBilgisi.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{calisanSayiBilgisi.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.calisanSayiBilgisi.version">Version</span></dt>
+        <dd>
+            <span>{{calisanSayiBilgisi.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.calisanSayiBilgisi.kisiSayisi">Kisi Sayisi</span></dt>
+        <dd>
+            <span>{{calisanSayiBilgisi.kisiSayisi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.calisanSayiBilgisi.isyeriBilgileri">Isyeri Bilgileri</span></dt>
+        <dd>
+            <div *ngIf="calisanSayiBilgisi.isyeriBilgileri">
+                <a [routerLink]="['/isyeri-bilgileri', calisanSayiBilgisi.isyeriBilgileri?.id]">{{calisanSayiBilgisi.isyeriBilgileri?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.calisanSayiBilgisi.calisanTipi">Calisan Tipi</span></dt>
+        <dd>
+            <div *ngIf="calisanSayiBilgisi.calisanTipi">
+                <a [routerLink]="['/calisan-tipi', calisanSayiBilgisi.calisanTipi?.id]">{{calisanSayiBilgisi.calisanTipi?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'calisan-sayi-bilgisi/'+ calisanSayiBilgisi.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

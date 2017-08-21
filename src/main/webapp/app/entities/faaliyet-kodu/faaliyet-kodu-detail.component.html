@@ -1,0 +1,33 @@
+
+<div *ngIf="faaliyetKodu">
+    <h2><span jhiTranslate="inventoryApp.faaliyetKodu.detail.title">Faaliyet Kodu</span> {{faaliyetKodu.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.faaliyetKodu.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{faaliyetKodu.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.faaliyetKodu.version">Version</span></dt>
+        <dd>
+            <span>{{faaliyetKodu.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.faaliyetKodu.faaliyetKodu">Faaliyet Kodu</span></dt>
+        <dd>
+            <span>{{faaliyetKodu.faaliyetKodu}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'faaliyet-kodu/'+ faaliyetKodu.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

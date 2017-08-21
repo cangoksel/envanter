@@ -1,0 +1,99 @@
+
+<div *ngIf="kurulus">
+    <h2><span jhiTranslate="inventoryApp.kurulus.detail.title">Kurulus</span> {{kurulus.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.kurulus.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{kurulus.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.version">Version</span></dt>
+        <dd>
+            <span>{{kurulus.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.adi">Adi</span></dt>
+        <dd>
+            <span>{{kurulus.adi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.telefon">Telefon</span></dt>
+        <dd>
+            <span>{{kurulus.telefon}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.telefon2">Telefon 2</span></dt>
+        <dd>
+            <span>{{kurulus.telefon2}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.fax">Fax</span></dt>
+        <dd>
+            <span>{{kurulus.fax}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.email">Email</span></dt>
+        <dd>
+            <span>{{kurulus.email}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.webSitesi">Web Sitesi</span></dt>
+        <dd>
+            <span>{{kurulus.webSitesi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.uyeSayisi">Uye Sayisi</span></dt>
+        <dd>
+            <span>{{kurulus.uyeSayisi}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.isyeriBilgileri">Isyeri Bilgileri</span></dt>
+        <dd>
+            <div *ngIf="kurulus.isyeriBilgileri">
+                <a [routerLink]="['/isyeri-bilgileri', kurulus.isyeriBilgileri?.id]">{{kurulus.isyeriBilgileri?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.kurulusTipi">Kurulus Tipi</span></dt>
+        <dd>
+            <div *ngIf="kurulus.kurulusTipi">
+                <a [routerLink]="['/kurulus-tipi', kurulus.kurulusTipi?.id]">{{kurulus.kurulusTipi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.faaliyetAlani">Faaliyet Alani</span></dt>
+        <dd>
+            <div *ngIf="kurulus.faaliyetAlani">
+                <a [routerLink]="['/faaliyet-alani', kurulus.faaliyetAlani?.id]">{{kurulus.faaliyetAlani?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.urunGrubu">Urun Grubu</span></dt>
+        <dd>
+            <div *ngIf="kurulus.urunGrubu">
+                <a [routerLink]="['/urun-grubu', kurulus.urunGrubu?.id]">{{kurulus.urunGrubu?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.yetkiliKisi">Yetkili Kisi</span></dt>
+        <dd>
+            <div *ngIf="kurulus.yetkiliKisi">
+                <a [routerLink]="['/kisi', kurulus.yetkiliKisi?.id]">{{kurulus.yetkiliKisi?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.adres">Adres</span></dt>
+        <dd>
+            <div *ngIf="kurulus.adres">
+                <a [routerLink]="['/adres', kurulus.adres?.id]">{{kurulus.adres?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.kurulus.bulunduguIl">Bulundugu Il</span></dt>
+        <dd>
+            <div *ngIf="kurulus.bulunduguIl">
+                <a [routerLink]="['/il', kurulus.bulunduguIl?.id]">{{kurulus.bulunduguIl?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'kurulus/'+ kurulus.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

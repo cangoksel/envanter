@@ -1,0 +1,37 @@
+{
+    "inventoryApp": {
+        "urun" : {
+            "home": {
+                "title": "Uruns",
+                "createLabel": "Create a new Urun",
+                "createOrEditLabel": "Create or edit a Urun"
+            },
+            "created": "A new Urun is created with identifier {{ param }}",
+            "updated": "A Urun is updated with identifier {{ param }}",
+            "deleted": "A Urun is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Urun {{ id }}?"
+            },
+            "detail": {
+                "title": "Urun"
+            },
+            "deleted": "Deleted",
+            "version": "Version",
+            "tanimi": "Tanimi",
+            "kullanimAlanlari": "Kullanim Alanlari",
+            "cesitleri": "Cesitleri",
+            "endikasyonlari": "Endikasyonlari",
+            "formlari": "Formlari",
+            "urunAltKodu": "Urun Alt Kodu",
+            "prodkomKodu": "Prodkom Kodu",
+            "gtipKodu": "Gtip Kodu",
+            "mkysKodu": "Mkys Kodu",
+            "medikalTurKodu": "Medikal Tur Kodu",
+            "naceKodu": "Nace Kodu",
+            "actKodu": "Act Kodu",
+            "tibbiCihazTehlikeSinifi": "Tibbi Cihaz Tehlike Sinifi",
+            "sayisalVeri": "Sayisal Veri",
+            "belge": "Belge"
+        }
+    }
+}

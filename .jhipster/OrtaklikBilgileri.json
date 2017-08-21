@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "isbirligiYapilanFirma",
+            "otherEntityName": "isbirligiFirma",
+            "otherEntityRelationshipName": "ortaklikBilgileri"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "isbirligiSunmaIstegiVarMi",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "isbirligiTalebiVarMi",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "isbirligiKonsu",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170821141818",
+    "entityTableName": "ortaklik_bilgileri",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

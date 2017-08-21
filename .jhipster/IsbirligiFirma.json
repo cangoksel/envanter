@@ -1,0 +1,43 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "ortaklikBilgileri",
+            "otherEntityName": "ortaklikBilgileri",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "firmaAdi",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "isbirligiKonsu",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170821141819",
+    "entityTableName": "isbirligi_firma",
+    "dto": "no",
+    "pagination": "no",
+    "service": "no"
+}

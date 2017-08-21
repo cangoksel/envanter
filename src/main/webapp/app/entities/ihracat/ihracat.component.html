@@ -1,0 +1,78 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.ihracat.home.title">Ihracats</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ihracat" [routerLink]="['/', { outlets: { popup: ['ihracat-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.ihracat.home.createLabel">
+            Create new Ihracat
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ihracats">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.ihracat.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.ihracat.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.ihracat.ithalatTutar">Ithalat Tutar</span></th>
+            <th><span jhiTranslate="inventoryApp.ihracat.ithalatPB">Ithalat PB</span></th>
+            <th><span jhiTranslate="inventoryApp.ihracat.miktar">Miktar</span></th>
+            <th><span jhiTranslate="inventoryApp.ihracat.yil">Yil</span></th>
+            <th><span jhiTranslate="inventoryApp.ihracat.finansalBilgileri">Finansal Bilgileri</span></th>
+            <th><span jhiTranslate="inventoryApp.ihracat.yapilanUlke">Yapilan Ulke</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ihracat of ihracats ;trackBy: trackId">
+                <td><a [routerLink]="['../ihracat', ihracat.id ]">{{ihracat.id}}</a></td>
+                <td>{{ihracat.deleted}}</td>
+                <td>{{ihracat.version}}</td>
+                <td>{{ihracat.ithalatTutar}}</td>
+                <td>{{ihracat.ithalatPB}}</td>
+                <td>{{ihracat.miktar}}</td>
+                <td>{{ihracat.yil | date:'mediumDate'}}</td>
+                <td>
+                    <div *ngIf="ihracat.finansalBilgileri">
+                        <a [routerLink]="['../finansal-bilgileri', ihracat.finansalBilgileri?.id ]" >{{ihracat.finansalBilgileri?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="ihracat.yapilanUlke">
+                        <a [routerLink]="['../ulke', ihracat.yapilanUlke?.id ]" >{{ihracat.yapilanUlke?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ihracat', ihracat.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ihracat/'+ ihracat.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ihracat/'+ ihracat.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

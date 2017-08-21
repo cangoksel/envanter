@@ -1,0 +1,189 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myGenelFirmaBilgileriLabel" jhiTranslate="inventoryApp.genelFirmaBilgileri.home.createOrEditLabel">Create or edit a Genel Firma Bilgileri</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!genelFirmaBilgileri.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="genelFirmaBilgileri.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.deleted" for="field_deleted">Deleted</label>
+            <input type="checkbox" class="form-control" name="deleted" id="field_deleted"
+                [(ngModel)]="genelFirmaBilgileri.deleted"  />
+            <div [hidden]="!(editForm.controls.deleted?.dirty && editForm.controls.deleted?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.deleted?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.version" for="field_version">Version</label>
+            <input type="number" class="form-control" name="version" id="field_version"
+                [(ngModel)]="genelFirmaBilgileri.version" required />
+            <div [hidden]="!(editForm.controls.version?.dirty && editForm.controls.version?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.version?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+                <small class="form-text text-danger"
+                    [hidden]="!editForm.controls.version?.errors?.number" jhiTranslate="entity.validation.number">
+                    This field should be a number.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.firmaUnvan" for="field_firmaUnvan">Firma Unvan</label>
+            <input type="text" class="form-control" name="firmaUnvan" id="field_firmaUnvan"
+                [(ngModel)]="genelFirmaBilgileri.firmaUnvan" required />
+            <div [hidden]="!(editForm.controls.firmaUnvan?.dirty && editForm.controls.firmaUnvan?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.firmaUnvan?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.kurulusTarihi" for="field_kurulusTarihi">Kurulus Tarihi</label>
+            <div class="input-group">
+                <input id="field_kurulusTarihi" type="text" class="form-control" name="kurulusTarihi" ngbDatepicker  #kurulusTarihiDp="ngbDatepicker" [(ngModel)]="genelFirmaBilgileri.kurulusTarihi"
+                />
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default" (click)="kurulusTarihiDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.saglikSektorundeMi" for="field_saglikSektorundeMi">Saglik Sektorunde Mi</label>
+            <input type="checkbox" class="form-control" name="saglikSektorundeMi" id="field_saglikSektorundeMi"
+                [(ngModel)]="genelFirmaBilgileri.saglikSektorundeMi"  />
+            <div [hidden]="!(editForm.controls.saglikSektorundeMi?.dirty && editForm.controls.saglikSektorundeMi?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.saglikSektorundeMi?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.sektorBilgisi" for="field_sektorBilgisi">Sektor Bilgisi</label>
+            <input type="text" class="form-control" name="sektorBilgisi" id="field_sektorBilgisi"
+                [(ngModel)]="genelFirmaBilgileri.sektorBilgisi"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.argeBirimiVarMi" for="field_argeBirimiVarMi">Arge Birimi Var Mi</label>
+            <input type="checkbox" class="form-control" name="argeBirimiVarMi" id="field_argeBirimiVarMi"
+                [(ngModel)]="genelFirmaBilgileri.argeBirimiVarMi"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.ticaretSicilNo" for="field_ticaretSicilNo">Ticaret Sicil No</label>
+            <input type="text" class="form-control" name="ticaretSicilNo" id="field_ticaretSicilNo"
+                [(ngModel)]="genelFirmaBilgileri.ticaretSicilNo"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.vergiNo" for="field_vergiNo">Vergi No</label>
+            <input type="text" class="form-control" name="vergiNo" id="field_vergiNo"
+                [(ngModel)]="genelFirmaBilgileri.vergiNo"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.acikAdress" for="field_acikAdress">Acik Adress</label>
+            <input type="text" class="form-control" name="acikAdress" id="field_acikAdress"
+                [(ngModel)]="genelFirmaBilgileri.acikAdress"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.telefon" for="field_telefon">Telefon</label>
+            <input type="text" class="form-control" name="telefon" id="field_telefon"
+                [(ngModel)]="genelFirmaBilgileri.telefon"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.telefon2" for="field_telefon2">Telefon 2</label>
+            <input type="text" class="form-control" name="telefon2" id="field_telefon2"
+                [(ngModel)]="genelFirmaBilgileri.telefon2"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.fax" for="field_fax">Fax</label>
+            <input type="text" class="form-control" name="fax" id="field_fax"
+                [(ngModel)]="genelFirmaBilgileri.fax"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.email" for="field_email">Email</label>
+            <input type="text" class="form-control" name="email" id="field_email"
+                [(ngModel)]="genelFirmaBilgileri.email"  />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="inventoryApp.genelFirmaBilgileri.webAdresi" for="field_webAdresi">Web Adresi</label>
+            <input type="text" class="form-control" name="webAdresi" id="field_webAdresi"
+                [(ngModel)]="genelFirmaBilgileri.webAdresi"  />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.genelFirmaBilgileri.il" for="field_il">Il</label>
+            <select class="form-control" id="field_il" name="il" [(ngModel)]="genelFirmaBilgileri.il">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="ilOption.id === genelFirmaBilgileri.il?.id ? genelFirmaBilgileri.il : ilOption" *ngFor="let ilOption of ils; trackBy: trackIlById">{{ilOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.genelFirmaBilgileri.ulke" for="field_ulke">Ulke</label>
+            <select class="form-control" id="field_ulke" name="ulke" [(ngModel)]="genelFirmaBilgileri.ulke">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="ulkeOption.id === genelFirmaBilgileri.ulke?.id ? genelFirmaBilgileri.ulke : ulkeOption" *ngFor="let ulkeOption of ulkes; trackBy: trackUlkeById">{{ulkeOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.genelFirmaBilgileri.kaydiOlusturanKisi" for="field_kaydiOlusturanKisi">Kaydi Olusturan Kisi</label>
+            <select class="form-control" id="field_kaydiOlusturanKisi" name="kaydiOlusturanKisi" [(ngModel)]="genelFirmaBilgileri.kaydiOlusturanKisi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="kisiOption.id === genelFirmaBilgileri.kaydiOlusturanKisi?.id ? genelFirmaBilgileri.kaydiOlusturanKisi : kisiOption" *ngFor="let kisiOption of kaydiolusturankisis; trackBy: trackKisiById">{{kisiOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.genelFirmaBilgileri.yetkiliKisi" for="field_yetkiliKisi">Yetkili Kisi</label>
+            <select class="form-control" id="field_yetkiliKisi" name="yetkiliKisi" [(ngModel)]="genelFirmaBilgileri.yetkiliKisi">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="kisiOption.id === genelFirmaBilgileri.yetkiliKisi?.id ? genelFirmaBilgileri.yetkiliKisi : kisiOption" *ngFor="let kisiOption of yetkilikisis; trackBy: trackKisiById">{{kisiOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.genelFirmaBilgileri.faaliyetAlani" for="field_faaliyetAlani">Faaliyet Alani</label>
+            <select class="form-control" id="field_faaliyetAlani" name="faaliyetAlani" [(ngModel)]="genelFirmaBilgileri.faaliyetAlani">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="faaliyetAlaniOption.id === genelFirmaBilgileri.faaliyetAlani?.id ? genelFirmaBilgileri.faaliyetAlani : faaliyetAlaniOption" *ngFor="let faaliyetAlaniOption of faaliyetalanis; trackBy: trackFaaliyetAlaniById">{{faaliyetAlaniOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.genelFirmaBilgileri.urunGrubu" for="field_urunGrubu">Urun Grubu</label>
+            <select class="form-control" id="field_urunGrubu" name="urunGrubu" [(ngModel)]="genelFirmaBilgileri.urunGrubu">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="urunGrubuOption.id === genelFirmaBilgileri.urunGrubu?.id ? genelFirmaBilgileri.urunGrubu : urunGrubuOption" *ngFor="let urunGrubuOption of urungrubus; trackBy: trackUrunGrubuById">{{urunGrubuOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.genelFirmaBilgileri.faaliyetKodu" for="field_faaliyetKodu">Faaliyet Kodu</label>
+            <select class="form-control" id="field_faaliyetKodu" name="faaliyetKodu" [(ngModel)]="genelFirmaBilgileri.faaliyetKodu">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="faaliyetKoduOption.id === genelFirmaBilgileri.faaliyetKodu?.id ? genelFirmaBilgileri.faaliyetKodu : faaliyetKoduOption" *ngFor="let faaliyetKoduOption of faaliyetkodus; trackBy: trackFaaliyetKoduById">{{faaliyetKoduOption.id}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="inventoryApp.genelFirmaBilgileri.adres" for="field_adres">Adres</label>
+            <select class="form-control" id="field_adres" name="adres" [(ngModel)]="genelFirmaBilgileri.adres">
+                <option [ngValue]="null"></option>
+                <option [ngValue]="adresOption.id === genelFirmaBilgileri.adres?.id ? genelFirmaBilgileri.adres : adresOption" *ngFor="let adresOption of adres; trackBy: trackAdresById">{{adresOption.id}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

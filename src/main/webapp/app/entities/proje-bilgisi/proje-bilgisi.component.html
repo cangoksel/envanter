@@ -1,0 +1,72 @@
+<div>
+    <h2>
+        <span jhiTranslate="inventoryApp.projeBilgisi.home.title">Proje Bilgisis</span>
+        <button class="btn btn-primary float-right jh-create-entity create-proje-bilgisi" [routerLink]="['/', { outlets: { popup: ['proje-bilgisi-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span  jhiTranslate="inventoryApp.projeBilgisi.home.createLabel">
+            Create new Proje Bilgisi
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="projeBilgisis">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="inventoryApp.projeBilgisi.deleted">Deleted</span></th>
+            <th><span jhiTranslate="inventoryApp.projeBilgisi.version">Version</span></th>
+            <th><span jhiTranslate="inventoryApp.projeBilgisi.konusu">Konusu</span></th>
+            <th><span jhiTranslate="inventoryApp.projeBilgisi.firma">Firma</span></th>
+            <th><span jhiTranslate="inventoryApp.projeBilgisi.destekVerenKurum">Destek Veren Kurum</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let projeBilgisi of projeBilgisis ;trackBy: trackId">
+                <td><a [routerLink]="['../proje-bilgisi', projeBilgisi.id ]">{{projeBilgisi.id}}</a></td>
+                <td>{{projeBilgisi.deleted}}</td>
+                <td>{{projeBilgisi.version}}</td>
+                <td>{{projeBilgisi.konusu}}</td>
+                <td>
+                    <div *ngIf="projeBilgisi.firma">
+                        <a [routerLink]="['../firma', projeBilgisi.firma?.id ]" >{{projeBilgisi.firma?.id}}</a>
+                    </div>
+                </td>
+                <td>
+                    <div *ngIf="projeBilgisi.destekVerenKurum">
+                        <a [routerLink]="['../kurum', projeBilgisi.destekVerenKurum?.id ]" >{{projeBilgisi.destekVerenKurum?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../proje-bilgisi', projeBilgisi.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'proje-bilgisi/'+ projeBilgisi.id + '/edit'} }]"
+                                replaceUrl="true"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'proje-bilgisi/'+ projeBilgisi.id + '/delete'} }]"
+                                replaceUrl="true"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="hidden-md-down" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

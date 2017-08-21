@@ -1,0 +1,71 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipName": "urun",
+            "otherEntityName": "urun",
+            "relationshipType": "many-to-one",
+            "otherEntityField": "id"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "deleted",
+            "fieldType": "Boolean",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "version",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "yil",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "ithalatMiktari",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "ihtiyacMiktari",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "birimFiyatTutar",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "birimFiyatPB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "dunyaPazariTutar",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "dunyaPazariPB",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "turkiyePazariTutar",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "turkiyePazariPB",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20170821141806",
+    "entityTableName": "sayisal_veri",
+    "dto": "no",
+    "pagination": "infinite-scroll",
+    "service": "no"
+}

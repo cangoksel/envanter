@@ -1,0 +1,49 @@
+
+<div *ngIf="il">
+    <h2><span jhiTranslate="inventoryApp.il.detail.title">Il</span> {{il.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="inventoryApp.il.deleted">Deleted</span></dt>
+        <dd>
+            <span>{{il.deleted}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.il.version">Version</span></dt>
+        <dd>
+            <span>{{il.version}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.il.label">Label</span></dt>
+        <dd>
+            <span>{{il.label}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.il.plakaNo">Plaka No</span></dt>
+        <dd>
+            <span>{{il.plakaNo}}</span>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.il.ulke">Ulke</span></dt>
+        <dd>
+            <div *ngIf="il.ulke">
+                <a [routerLink]="['/ulke', il.ulke?.id]">{{il.ulke?.id}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="inventoryApp.il.bolge">Bolge</span></dt>
+        <dd>
+            <div *ngIf="il.bolge">
+                <a [routerLink]="['/bolge', il.bolge?.id]">{{il.bolge?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'il/'+ il.id + '/edit'} }]"
+            replaceUrl="true"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

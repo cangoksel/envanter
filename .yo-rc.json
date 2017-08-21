@@ -1,0 +1,40 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "tr.gov.sb.sygm",
+      "nativeLanguage": "tr"
+    },
+    "jhipsterVersion": "4.6.2",
+    "baseName": "inventory",
+    "packageName": "tr.gov.sb.sygm",
+    "packageFolder": "tr/gov/sb/sygm",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "hibernateCache": "hazelcast",
+    "clusteredHttpSession": false,
+    "websocket": false,
+    "databaseType": "sql",
+    "devDatabaseType": "h2Memory",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "gradle",
+    "enableSocialSignIn": false,
+    "jwtSecretKey": "c0b79a621063cba712aaf18a3150fce4e7659244",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "yarn",
+    "applicationType": "monolith",
+    "testFrameworks": [
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "tr",
+    "languages": [
+      "tr",
+      "en"
+    ]
+  }
+}
